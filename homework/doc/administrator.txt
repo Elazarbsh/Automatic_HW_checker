@@ -1,0 +1,33 @@
+Homework checking system administrator's manual:
+
+First Installation:
+    Create in the server a directory executable to public.
+    Copy the folders "code", "data", "doc", "lib" and "deploy" to this directory.
+    Edit files in "data" to remove obsolete data.
+    Make the directories rx to public.
+    Make the files r to public.
+    Make a symbolic link to deploy/hwcheck in /usr/bin or elsewhere on $PATH (ln -s `pwd`/hwcheck /usr/bin)
+    Modify the function checkID for non-Israeli ID numbers
+  
+
+Upgrade:
+    Replace the contents of the directories "code", "doc", "lib" and "deploy"
+
+New instructor:
+    Add a line to the data/instructors.csv file.
+    su the instructor's user
+         mkdir homework
+         chmod 771 homework
+         cd homework
+         create an empty assignments.csv file
+         chmod 664 assignments.csv
+
+New course:
+    Add a line to the file "data/courses.csv"
+
+    su the instructor's user
+        cd homework
+        mkdir <course id>
+        chmod 771 <course id>
+
+    Report the course Id to the instructor.

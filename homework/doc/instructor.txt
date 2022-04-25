@@ -1,0 +1,40 @@
+Homework checking system course instuctor's manual:
+
+Step 1 (When the semester starts):
+   Get a course ID (a small positive integer) from the administrator.
+   Note that each semeter the course is given, it will be assigned a new ID.
+
+Step 2 (For every homework):
+   Add a line to the assignments.csv file in your home directory (in cs.telhai.ac.il).
+   The following is a sample content of such a file.
+
+courseId,shortName,name,type,deadline
+2,W1,Wet Assignment 1,CFlat,15/11/2016 16:00
+2,W2,Wet Assignment 2,CFlat,07/12/2016 18:00
+
+   Please pay attention to
+   - Not to modify the first line
+   - Separate the fields with comma characters
+   - Not to leave spaces before or after the comma characters.
+   - Adhere to the date format in the deadline field
+
+   courseId: Is the ID of the course metioned in Step 1
+   shortName: Is the short name for the homework that will be used by the students in their submission file name.
+              (should be unique within the same course)
+   name: Is a descriptive name for the homework
+   type is one of the following:
+   CFlat: A submission that contains only *.c files and *.txt files (for documentation purposes)
+          with no subdirectories.
+          The system will a) compile every .c file using "gcc -Wall -g -c"
+                          b) link all the ".o" files to a program called "prog"
+                          c) will test "prog" on your test inputs, i.e. on every file in the homework's directory
+                             whose name starts with "input"  (see Step 3) and verifies that the output matches
+                             the content of the corresponding file whose name starts with "output".
+
+Step 3 (For every homework):
+   Publish the course id and homework's short name to students.
+
+Step 4 (For every homework):
+   Create a directory under your home directory with the same name as the short name of the homework
+   You can add anything to this directory. The system will consider only relevant files, depending on
+   the type of the homework.

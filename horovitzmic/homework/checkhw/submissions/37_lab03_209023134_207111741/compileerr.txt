@@ -1,0 +1,13 @@
+./DLinkedList.java:14: warning: [cast] redundant cast to T
+			this.Head = new DNode((T)newElement);
+			                      ^
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:82: warning: [cast] redundant cast to T
+		Curser.element=(T) newElement;
+		               ^
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+error: warnings found and -Werror specified
+1 error
+2 warnings

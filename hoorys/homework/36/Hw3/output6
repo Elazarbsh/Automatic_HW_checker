@@ -1,0 +1,16 @@
+Standard ML of New Jersey v110.80 [built: Wed Mar 15 00:57:49 2017]
+- [opening Hw3-6.sml]
+datatype 'a seq = SEQ of 'a * (unit -> 'a seq) | null
+val genSeq = fn : 'a * 'a * ('a * 'a -> 'a) -> 'a seq
+val firstnSeq = fn : int -> 'a seq -> 'a list
+val it = () : unit
+val fib = SEQ (0,fn) : int seq
+val fib10 = [0,1,1,2,3,5,8,13,21,34] : int list
+val even = SEQ (0,fn) : int seq
+val even0 = [] : int list
+val even1 = [0] : int list
+val even10 = [0,2,4,6,8,10,12,14,16,18] : int list
+val seq = SEQ (0.0,fn) : real seq
+val seq10 = [0.0,1024.0,512.0,768.0,640.0,704.0,672.0,688.0,680.0,684.0]
+  : real list
+- 

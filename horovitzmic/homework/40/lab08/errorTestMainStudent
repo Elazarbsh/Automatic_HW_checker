@@ -1,0 +1,58 @@
+Exception program - file not found
+Exception program - file empty
+Exception program - not a number.
+For input string: "abcdefg" after processing 10 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 36 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 67 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 76 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 106 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 113 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 120 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 124 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 130 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 134 lines.
+Exception program - not a number.
+For input string: "abcdefg" after processing 255 lines.
+Exception program - entry too big
+offending entry: -1905445.1886612335 after processing 47 lines.
+Exception program - entry too big
+offending entry: -1647293.6386279673 after processing 78 lines.
+Exception program - entry too big
+offending entry: 1669507.4063123043 after processing 102 lines.
+Exception program - entry too big
+offending entry: -1073380.8569294722 after processing 122 lines.
+Exception program - entry too big
+offending entry: 1098407.1917371973 after processing 135 lines.
+Exception program - entry too big
+offending entry: -1770494.2491152808 after processing 150 lines.
+Exception program - entry too big
+offending entry: -1290684.6068027648 after processing 209 lines.
+Exception program - entry too big
+offending entry: -1861461.451555919 after processing 269 lines.
+Exception program - entry too big
+offending entry: 1223370.1806737662 after processing 272 lines.
+Exception program - sum too large.
+is 5.00999499E8(exceeding 5.0E8) after processing 500 lines.
+Exception program - Too many entries
+after processing 1001 lines.
+Exception program - multiple entries in a line.
+2 entries in line 22
+Exception program - multiple entries in a line.
+2 entries in line 70
+Exception program - multiple entries in a line.
+2 entries in line 80
+Exception program - multiple entries in a line.
+2 entries in line 81
+Exception program - multiple entries in a line.
+2 entries in line 82
+Exception program - multiple entries in a line.
+3 entries in line 271

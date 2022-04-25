@@ -1,0 +1,103 @@
+Homework checking system homework checker's manual:
+
+Step 1:
+    Prepare an empty directory and download all the submissions from Moodle as a single zip file into this directory/
+    Rename your file as:
+    <Course Id>_<Homework Id>_all.zip
+    For example, if the ID of your course is 2 and the ID of the homework is WET1 the file should be named as:
+         2_WET1_all.zip
+    In the rest of the document we will use this name as an example or refer to it as <zipFileName> 
+
+
+Step 2 (THE EASY WAY):
+    Extract and do a preliminary checking of the submissions by writing
+        hwcheck <zipFileName>
+    in the Linux command shell when you are in the above directory that contains only the submissions' zip file.
+
+    The program will create a subdirectory named "submissions", and will extract every valid submission in a separate
+    sub-subdirectory. A submission is invalid if it is not a zipfile, or the file name is not valid (see student's
+    manual). An invalid file will not be extracted. Instead, an error message will be printed to the standard error
+    and also to the results.csv file.
+
+    Every valid submission (that is now in a sub-subdirectory) will be checked for correct content (correct file
+    extensions etc.), compiled, linked and tested using the available test cases.
+    See students' documentation for details.
+
+    The summary will be written to the standard output and also to two "*.csv" files for your inspection.
+
+Step 3:
+    Check the homework for documentation, coding style, efficiency, design etc.. as instructed by the course's
+    instructor.
+    edit the file grades.csv accordingly and carefully.
+    
+Step 4:
+    - share the results in your personal website
+    - cp -r submissions jplagresults *.csv ~/public_html
+    - cd ~/public_html
+    
+Step 5:
+    - check jplagresults
+    - edit the file grades.csv accordingly and carefully.
+    
+Step 6:
+    Upload the "*grades.csv" file to Moodle.
+
+    
+Step 2 (THE HARD WAY):
+    2.1
+    - hwcheck --extractMoodle <zipFileName>
+    - pay attention to duplicate files, note them on a piece of paper (you probably have very few or none).
+    - cp -r submissions 01-asDownloaded
+    
+    2.2
+    - correct all file names in the submission directory:
+      a) Bad file name extensions and directories:
+         Note that if you prevented the submission of any file types except .zip then you will not have such files.
+         Leave these files and directories intact for the next step.
+      b) Bad file names (with .zip extension)
+	      - If you can recognize the student number just rename the file as needed.
+	      - Otherwise, consult the Moodle website to see who is the owner of the file and rename the file accordingly.
+	      - Note all these files in badFileName.txt
+      c) Missing files: 
+	      - Download from Moodle all the duplicate files whose names are written in the piece of paper from Moodle and treat them as above.
+	      - Note all these files in badFileName.txt    
+    - Verify that the number of files in the submissions directory is equal to the number of submissions.
+        - ls -l submissions | wc -l
+    - cp -r  submissions 02-afterFileNameCorrection
+    - rm *.csv
+    
+    2.3
+    - hwcheck --extractStudent <zipFileName>
+    - all the problematic files (probably having bad file format, i.e., non-zip files that have .zip extension) are 
+      shown on the terminal and can also be found in the results.csv file
+    - mv 2_WET1_results.csv badFileFormat.txt
+    - bring all the files and directories that were not handled in the previous stage (2.2.a) from the 01-afterFileNameCorrection 
+      directory to the submissions directory.
+    - Try to understand their content and to construct a correct student sub-directory within the submissions directory.
+    - Add these files manually badFileFormat.txt
+    - cp -r submissions 03-afterFileFormatCorrection
+    
+    2.4
+    - hwcheck --noextract <zipFileName> 
+    - this will check everything and create the output and error files.
+    - ls -l submissions/*/myError* > badContent.txt
+    - ls -l submissions/compilerr.txt >> badContent.txt
+    - Now the file badContent.txt contains the programs that could not be run successfully
+    - In Java projects, the reason could be a program file that is:
+        - in a bad location, or
+        - having incorrect package information, or
+        - badly named, or
+        - having a bad class name
+    - cp -r  03-afterFileFormatCorrection 04-afterContentCorrection
+    - go to the 04-afterContentCorrection directory and correct the structure of all these student directories manually
+      (do not attempt to correct student programs beyond the above problems, 
+       Just rename files, rename class names and edit package information).
+       
+    2.5
+    - rm -r submissions
+    - cp -r 04-afterContentCorrection submissions
+    - hwcheck --noextract <zipFileName> 
+    
+    2.6
+    - edit the grades.csv file to penalize for badFileNames, badFileFormats etc.
+    

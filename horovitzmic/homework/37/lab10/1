@@ -1,0 +1,2 @@
+Args=["org.junit.runner.JUnitCore", "il.ac.telhai.ds.heap.MinHeapTest"]
+GradeForPass=60

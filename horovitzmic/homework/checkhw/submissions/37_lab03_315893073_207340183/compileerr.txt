@@ -1,0 +1,39 @@
+./DNode.java:5: warning: [rawtypes] found raw type: DNode
+	private DNode next, prev;
+	        ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:5: warning: [rawtypes] found raw type: DNode
+	private DNode next, prev;
+	        ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:13: warning: [rawtypes] found raw type: DNode
+	public DNode getNext() {
+	       ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:17: warning: [rawtypes] found raw type: DNode
+	public void setNext(DNode next) {
+	                    ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:21: warning: [rawtypes] found raw type: DNode
+	public DNode getPrev() {
+	       ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:25: warning: [rawtypes] found raw type: DNode
+	public void setPrev(DNode prev) {
+	                    ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+error: warnings found and -Werror specified
+1 error
+6 warnings

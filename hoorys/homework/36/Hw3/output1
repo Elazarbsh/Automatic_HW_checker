@@ -1,0 +1,8 @@
+Standard ML of New Jersey v110.80 [built: Wed Mar 15 00:57:49 2017]
+- [opening Hw3-1.sml]
+val range = fn : int * int -> int list
+val it = () : unit
+val r1 = [0,1,2,3,4,5,6] : int list
+val r2 = [] : int list
+val r3 = [2] : int list
+- 

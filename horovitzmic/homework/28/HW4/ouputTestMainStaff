@@ -1,0 +1,14 @@
+Testing encryptor and decryptor.
+
+Writing the following text (of size 7):
+"Hi all."
+which encoded to:
+"HHHiii   aaallllll..."
+
+Reading the following encoded text:
+"HHHiii   aaallllll..."
+and decoding it to:
+"Hi all."
+Reading the erroneous encoded text,
+and decoding it to:
+"?i all."

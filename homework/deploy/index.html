@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<meta name="Description" content="Department of Computer Science, Tel-Hai College" />
+<meta name="Keywords" content="Higher Education, Computer Science, Software Engineering, Signal Processing" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="Distribution" content="Global" />
+<meta name="Robots" content="index,follow" />
+
+<link rel="stylesheet" href="images/TelHai.css" type="text/css" />
+<meta charset="utf-8" />
+<title>Computer Science Tel-Hai Homework Check</title>
+	
+<script>
+function setDirectoryLink() {
+    document.getElementById("check").disabled=false;
+    document.getElementById("clear").disabled=false;
+}
+
+function showResults() {
+    fileName = document.getElementById("fileName").value;
+    dirName=fileName.slice(12,-4); // Remove C:\fakepath prefix and .zip suffix 
+    window.location.href = dirName;
+}
+
+</script>
+
+</head>
+
+<body>
+	<div id="header"><div id="header-content">	
+		<h1 id="logo"><a href="index.html" title="">CS <span class="gray">TelHai</span></a></h1>	
+		<h2 id="slogan">Department of Computer Science, Tel-Hai College</h2>		
+	</div></div>
+	
+    <form action="form.py" method="post" enctype="multipart/form-data">
+    <table style="height: 64px; width: 502px; float: left;">
+    <tbody>
+    <tr>
+    <td><tt><strong>Homework File</strong></tt> 
+    <input id="fileName" name="fileName" type="file" accept=".zip" onchange="setDirectoryLink()"/></td>
+    </tr>
+
+    <tr>
+    <td><br />
+    <input id="check" name="checkHomework" type="submit" value="Check Homework" />&nbsp; 
+    <input id="dir" size=2 type=button value='Results' onclick='showResults()'> &nbsp;
+    <input id="clear" name="clearResults" type="submit" value="Clear Results Directory" /></td>
+    </tr>
+    </tbody>
+    </table>
+    </form>
+
+</body>
+</html>

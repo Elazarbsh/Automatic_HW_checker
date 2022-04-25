@@ -1,0 +1,13 @@
+use "Hw3-6.sml";
+
+val fib = genSeq(0,1,op+);
+val fib10 = firstnSeq 10 fib;
+
+val even = genSeq(0,2,(fn(x,y) => y+2));
+val even0 = firstnSeq 0 even;
+val even1 = firstnSeq 1 even;
+val even10 = firstnSeq 10 even;
+
+val seq = genSeq(0.0,1024.0,(fn(x,y) => ((x+y)/2.0)));
+val seq10 = firstnSeq 10 seq;
+

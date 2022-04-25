@@ -1,0 +1,10 @@
+./37_lab03_206980260_318463551/List.java:1: error: duplicate class: List
+public interface List<T> {
+       ^
+./37_lab03_206980260_318463551/DListFactory.java:1: error: duplicate class: DListFactory
+public class DListFactory<T> {
+       ^
+./37_lab03_206980260_318463551/ListTestObject.java:1: error: duplicate class: ListTestObject
+public class ListTestObject extends ListTest<Object>{
+       ^
+3 errors

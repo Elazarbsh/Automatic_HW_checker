@@ -1,0 +1,39 @@
+use "Hw3-4.sml";
+
+val exp1 = NODE(op+,LEAF 2,NODE(op*,LEAF 3,VAR "x")); (* 2+3x *)
+val exp2 = NODE(op*,
+                NODE(op-,VAR "x",VAR "y"),
+                NODE(op+,VAR "x",VAR "y")); (* (x-y)*(x+y) *)
+val exp3 = NODE(op+,LEAF 2.0,LEAF 3.1);
+val exp4 = NODE(op+,LEAF 2,LEAF 3);
+
+exception Undef;
+
+fun ass1 "x" = 10
+  | ass1 _   = raise Undef;
+
+fun ass2 "x" = 5
+  | ass2 "y" = 2
+  | ass2 _   = raise Undef;
+
+fun empty_ass (_:string) = raise Undef;
+
+val e1 = evalExp(exp1, ass1);
+val e2 = evalExp(exp1, ass2);
+val e3 = evalExp(exp2, ass2);
+val e4 = evalExp(exp3, empty_ass);
+val e5 = evalExp(exp4, empty_ass);
+val e6 = evalExp(exp4, ass2);
+
+val m1 = mergeDistinctSorted([],[]);
+val m2 = mergeDistinctSorted(["a","b"],[]);
+val m3 = mergeDistinctSorted([],["this"]);
+val m4 = mergeDistinctSorted(["a","c","e"],["a","f"]);
+val m5 = mergeDistinctSorted(["b"],["a","b","d"]);
+val m6 = mergeDistinctSorted(["a","b","d"],["b"]);
+val m7 = mergeDistinctSorted(["a","b","d"],["a","b","d"]);
+
+val v1 = varsOfExp(exp1);
+val v2 = varsOfExp(exp2);
+val v3 = varsOfExp(exp3);
+val v4 = varsOfExp(exp4);

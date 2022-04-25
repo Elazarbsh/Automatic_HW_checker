@@ -1,0 +1,25 @@
+Standard ML of New Jersey v110.80 [built: Wed Mar 15 00:57:49 2017]
+- [opening Hw3-5.sml]
+[opening Hw3-4.sml]
+datatype 'a Exp
+  = LEAF of 'a | NODE of ('a * 'a -> 'a) * 'a Exp * 'a Exp | VAR of string
+val evalExp = fn : 'a Exp * (string -> 'a) -> 'a
+val mergeDistinctSorted = fn : string list * string list -> string list
+val varsOfExp = fn : 'a Exp -> string list
+val it = () : unit
+val numSatisfying = fn : bool Exp -> int
+val it = () : unit
+val And = fn : bool * bool -> bool
+val Or = fn : bool * bool -> bool
+val Xor = fn : bool * bool -> bool
+val boolExp1 = NODE (fn,VAR "x",VAR "y") : bool Exp
+val n1 = 1 : int
+val boolExp2 = NODE (fn,VAR "x",VAR "y") : bool Exp
+val n2 = 3 : int
+val boolExp3 = NODE (fn,VAR "x",VAR "x") : bool Exp
+val n3 = 1 : int
+val boolExp4 = NODE (fn,VAR "x",NODE (fn,VAR #,VAR #)) : bool Exp
+val n4 = 7 : int
+val boolExp5 = NODE (fn,VAR "x",NODE (fn,VAR #,VAR #)) : bool Exp
+val n5 = 4 : int
+- 

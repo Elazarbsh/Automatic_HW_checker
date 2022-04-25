@@ -1,0 +1,136 @@
+Note: ./DLinkedList.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+./DNode.java:4: warning: [rawtypes] found raw type: DNode
+	private DNode next;
+	        ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:5: warning: [rawtypes] found raw type: DNode
+	private DNode prev;
+	        ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:24: warning: [rawtypes] found raw type: DNode
+	public void setNext(DNode next)
+	                    ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:29: warning: [rawtypes] found raw type: DNode
+	public DNode getNext()
+	       ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:33: warning: [rawtypes] found raw type: DNode
+	public void setPrev(DNode prev)
+	                    ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DNode.java:37: warning: [rawtypes] found raw type: DNode
+	public DNode getPrev() {
+	       ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+error: warnings found and -Werror specified
+./DLinkedList.java:28: warning: [unchecked] unchecked conversion
+			DNode<T>temp= this.cursor.getNext();
+			                                 ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:32: warning: [unchecked] unchecked conversion
+			cursor=cursor.getNext();
+			                     ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:61: warning: [unchecked] unchecked conversion
+				Head = Head.getNext();
+				                   ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:77: warning: [unchecked] unchecked conversion
+			cursor=cursor.getPrev();
+			                     ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:82: warning: [unchecked] unchecked conversion
+				cursor = cursor.getNext();
+				                       ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:107: warning: [unchecked] unchecked conversion
+			cursor=cursor.getNext();
+			                     ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:131: warning: [rawtypes] found raw type: DNode
+		DNode<T> temp = new DNode(newElement),temp2;
+		                    ^
+  missing type arguments for generic class DNode<T>
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DLinkedList.java:131: warning: [unchecked] unchecked call to DNode(T) as a member of the raw type DNode
+		DNode<T> temp = new DNode(newElement),temp2;
+		                ^
+  where T is a type-variable:
+    T extends Object declared in class DNode
+./DLinkedList.java:131: warning: [unchecked] unchecked conversion
+		DNode<T> temp = new DNode(newElement),temp2;
+		                ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:134: warning: [unchecked] unchecked conversion
+			temp2=cursor.getNext();
+			                    ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:145: warning: [unchecked] unchecked conversion
+			cursor = cursor.getPrev();
+			                       ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:183: warning: [unchecked] unchecked conversion
+				cursor = cursor.getNext();   
+				                       ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:199: warning: [unchecked] unchecked conversion
+			cursor=cursor.getNext();
+			                     ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:219: warning: [unchecked] unchecked conversion
+				cursor=cursor.getNext();
+				                     ^
+  required: DNode<T>
+  found:    DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+1 error
+20 warnings

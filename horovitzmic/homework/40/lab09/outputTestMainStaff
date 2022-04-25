@@ -1,0 +1,4 @@
+Pizza: size = 2; Price = 34.0; Toppings: none
+Pizza: size = 2; Price = 42.0; Toppings: OLIVES, 
+Pizza: size = 2; Price = 58.0; Toppings: OLIVES, ONIONS, 
+Pizza: size = 2; Price = 66.0; Toppings: OLIVES, ONIONS, OLIVES, 

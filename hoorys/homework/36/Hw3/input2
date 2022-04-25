@@ -1,0 +1,25 @@
+use "Hw3-2.sml";
+
+val a = rotR [] : int list list;
+val b = rotR [[]] : int list list;
+
+val m0 = [[1,2,3],[4,5,6],[7,8,9]];
+val m1 = rotR m0;
+val m2 = rotR m1;
+val m3 = rotR m2;
+val m4 = rotR m3;
+
+val p0 = [["a","b","c","d"],["A","B","C","D"]];
+val p1 = rotR p0;
+val p2 = rotR p1;
+val p3 = rotR p2;
+val p4 = rotR p3;
+
+val r1 = sumRows([]);
+val r2 = sumRows([[],[]]);
+val r3 = sumRows([[1,2],[3,4],[5,6]]);
+
+
+val c1 = sumCols([]);
+val c2 = sumCols([[],[]]);
+val c3 = sumCols([[1,2],[3,4],[5,6]]);

@@ -1,0 +1,10 @@
+order     shoe      10
+supply    shoe      5
+define    coat      20
+Shimon	  coat		37
+
+define    pants		20
+order     pants     30
+order     pants     15
+supply    pants     19
+supply    pants     13

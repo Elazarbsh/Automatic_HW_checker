@@ -1,0 +1,20 @@
+Standard ML of New Jersey v110.80 [built: Wed Mar 15 00:57:49 2017]
+- [opening Hw1.sml]
+[autoloading]
+[library $SMLNJ-BASIS/basis.cm is stable]
+[library $SMLNJ-BASIS/(basis.cm):basis-common.cm is stable]
+[autoloading done]
+val adder = fn : string * string -> string
+val curry3 = fn : ('a * 'b * 'c -> 'd) -> 'a -> 'b -> 'c -> 'd
+val uncurry3 = fn : ('a -> 'b -> 'c -> 'd) -> 'a * 'b * 'c -> 'd
+val it = () : unit
+val it = "22" : string
+val it = "~1" : string
+val it = "0" : string
+val it = "100" : string
+val it = "101" : string
+val concat3 = fn : string * string * string -> string
+val curried_concat3 = fn : string -> string -> string -> string
+val it = "a beautiful world" : string
+val it = "a beautiful world" : string
+- 

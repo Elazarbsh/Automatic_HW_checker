@@ -1,0 +1,8 @@
+complex#[7,(1+5i)]
+double#[0,1.0][3,-2]
+aaa#[0,1.0][3,-2]
+complex#
+double#[0,1.0][3,-2]#[-2,1.0]
+double#[-2,1.0]
+complex#[7,-(1+5i)]
+complex#7,(1+5i)

@@ -1,0 +1,40 @@
+id,name,year,semester,instructor,active
+1,Introduction to Systems Programming,2016-17,Fall,Itai Sharon,False
+2,Programming with C++,2016-17,Spring,Ofer Shir,False
+3,Object Oriented Programming with Java,2016-17,Fall,Ron Sivan,False
+5,Operating Systems Lab,2016-17,Spring,Mordo Shalom,False
+6,Computer Networks Lab,2016-17,Spring,Mordo Shalom,False
+7,Object Oriented Programming with Java,2016-17,Spring,Ron Sivan,False
+8,Principles of Programming Languages,2016-17,Spring,Mordo Shalom,False
+9,Introduction to Computer Science,2017-18,Fall,Dani Kotlar,False
+10,Introduction to Systems Programming,2017-18,Fall,Itai Sharon,False
+11,Programming with C++,2018-19,Spring,Ofer Shir,False
+12,Object Oriented Programming with Java,2017-18,Fall,Ron Sivan,False
+13,Principles of Programming Languages,2017-18,Fall,Mordo Shalom,False
+14,Computer Networks Lab,2019-20,Spring,Mordo Shalom,False
+15,Operating Systems Lab,2019-20,Spring,Mordo Shalom,False
+16,Introduction to Computer Science,2018-19,Fall,Dani Kotlar,False
+17,Principles of Programming Languages,2019-19,Fall,Mordo Shalom,False
+18,Introduction to Systems Programming,2018-19,Fall,Itai Sharon,False
+19,Programming with C++,2018-19,Spring,Evgenia Wasserman Pritsker,False
+20,Introduction to Computer Science,2023-24,Spring,Donita Cohen,True
+21,Data Structures Lab,2019-20,Fall,Mordo Shalom,False
+22,Principles of Programming Languages,2019-20,Fall,Mordo Shalom,False
+23,Object Oriented Programming with Java,2021-22,Fall,Michal Horovitz,True
+24,Introduction to Computer Science,2019-20,Fall,Dani Kotlar,False
+25,Object Oriented Programming with Java,2019-20,Spring,Ron Sivan,False
+26,Programming with C++,2019-20,Spring,Andrey Berger,False
+27,Advanced OOP,2019-20,Spring,Ofer Shir,False
+28,Object Oriented Programming with Java,2020-21,Fall,Michal Horovitz,False
+29,Data Structures Lab,2020-21,Fall,Michal Horovitz,False
+30,Principles of Programming Languages,2020-21,Fall,Shlomo Hoory,False
+31,Programming with C++,2020-21,Fall,Ofer Shir,False
+32,Programming with C++,2020-21,Spring,Shlomo Hoory,False
+33,Operating Systems Lab,2020-21,Spring,Tal Abziz,True
+34,Computer Networks Lab,2020-21,Spring,Tal Abziz,True
+35,Object Oriented Programming with Java,2021-22,Fall,Michal Horovitz,True
+36,Principles of Programming Languages,2021-22,Fall,Shlomo Hoory,True
+37,Data Structures Lab,2021-22,Fall,Michal Horovitz,True
+38,Programming with C++,2021-22,Spring,Shlomo Hoory,True
+39,Introduction to SystemsProgramming,2021-22,Spring,Shlomo Hoory,True
+40,Object Oriented Programming with Java,2021-22,Spring,Michal Horovitz,True

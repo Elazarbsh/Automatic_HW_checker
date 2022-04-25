@@ -1,0 +1,4 @@
+use "Hw3-1.sml";
+val r1 = range(0,7);
+val r2 = range(0,0);
+val r3 = range(2,3);

@@ -1,0 +1,9 @@
+/* 
+ * Departement table !
+ */
+CREATE TABLE dept (
+deptno INT NOT NULL,
+dname VARCHAR(14), -- formal departement name
+/* Here come an illegal character! */ ! 
+loc VARCHAR(13)    -- a free text string specifying the location
+)

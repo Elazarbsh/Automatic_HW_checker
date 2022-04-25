@@ -1,0 +1,19 @@
+Tests
+- the script option
+- the Script Assignment type
+
+
+Fixes
+- jPlag not invoked in CFlat
+
+Minor Features
+- Calc maximum grade (might be less than 100)
+- Possibility to add compilation flags in .properties file
+- Move assignments.csv to .properties
+- In java one can test even if compilation fails
+- Makefiles
+- Do not display full file names (compare against the symbolic link)
+
+Major Features
+- Obf
+- Check style (what and how?) ???

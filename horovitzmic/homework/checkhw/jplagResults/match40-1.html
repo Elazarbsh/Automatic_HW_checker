@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+ <TITLE>37_lab03_211755897_209315670</TITLE>
+<META http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <script type="text/javascript">
+  <!--
+   function ZweiFrames(URL1,F1,URL2,F2)
+   {
+    parent.frames[F1].location.href=URL1;
+    parent.frames[F2].location.href=URL2;
+   }
+  //-->
+  </script>
+</HEAD>
+<BODY BGCOLOR="#ffffff" style="margin-left:25">
+<HR>
+<H3><CENTER>DListFactory.java</CENTER></H3><HR>
+<PRE>
+<A NAME="2"></A><FONT color="#77bfc7"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match40-0.html#2',2,'match40-top.html#2',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>public class DListFactory&lt;T&gt; {
+
+	public List&lt;T&gt; getDList()
+			throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+		return getDList(&quot;DLinkedList&quot;);
+	}
+	
+	@SuppressWarnings({ &quot;unchecked&quot;, &quot;deprecation&quot; })
+	public List&lt;T&gt; getDList(String classNameToTest) {
+		Class&lt;?&gt; c;
+		List&lt;T&gt; dlist=null;
+		try {
+			c = Class.forName(classNameToTest);
+			dlist = (List&lt;T&gt;) c.newInstance();
+			
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return dlist;
+	}
+
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>DNode.java</CENTER></H3><HR>
+<PRE>
+class DNode&lt;T&gt; 
+{
+	private T element;
+	private DNode next;
+	private DNode prev;
+	
+	
+	public DNode(T element)
+	{
+		this.element=element;
+	}
+<A NAME="0"></A>	public DNode(T newElement, DNode&lt;T&gt; temp) 
+	{
+		this.next=temp;
+<FONT color="#0000ff"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match40-0.html#0',2,'match40-top.html#0',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>		this.element=newElement;
+		
+	
+	}
+	public T getElement()
+	{
+		return element;
+		
+	}
+	public void setNext(DNode next)
+	{
+		this.next=next;
+		
+	}
+	public DNode getNext()
+	{
+		return next;
+	}
+	public void setPrev(DNode prev)
+	{
+		this.prev=prev;
+	}
+	public DNode getPrev() {
+		return prev;
+	}</B></FONT>
+
+}
+</PRE>
+<HR>
+<H3><CENTER>ListTest.java</CENTER></H3><HR>
+<PRE>
+<A NAME="3"></A>import static org.junit.Assert.assertEquals;
+<FONT color="#6cc417"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match40-0.html#3',2,'match40-top.html#3',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public abstract class ListTest&lt;T&gt; {
+
+	private DListFactory&lt;T&gt; dListFactory = new DListFactory&lt;T&gt;();
+	private List&lt;T&gt; dList;
+
+	private T newInstance1;
+	private T newInstance2;
+	private T newInstance3;
+
+	/**
+	 * @return a new instance of parameter T. Two instances which are created by
+	 *         this method should be different according to &quot;equals&quot; method. For
+	 *         example for T=Object, the implementation can be &quot;return new
+	 *         Object();&quot;.
+	 */
+
+	public abstract T getParameterInstance();
+
+	@Before
+	public void setUp() throws Exception {
+		dList = dListFactory.getDList();
+
+		newInstance1 = getParameterInstance();
+		newInstance2 = getParameterInstance();
+		newInstance3 = getParameterInstance();
+	}
+
+	/**
+	 * @return a new instance of parameter T. Two instances which are created by
+	 *         this method should be different according to &quot;equals&quot; method. For
+	 *         example for T=Object, the implementation can be &quot;return new
+	 *         Object();&quot;.
+	 */
+
+
+	@Test
+	public void testGetParameterInstance() {
+		if ((newInstance1.equals(newInstance2)) || (newInstance1.equals(newInstance3))
+				|| (newInstance3.equals(newInstance2))) {
+			fail(&quot;new instances should be different&quot;);
+		}
+	}
+
+	@Test
+	public void testIsEmpty() {
+		assertTrue(dList.isEmpty());
+		dList.insert(newInstance1);
+		assertFalse(dList.isEmpty());
+		dList.insert(newInstance2);
+		assertFalse(dList.isEmpty());
+		dList.clear();
+		assertTrue(dList.isEmpty());
+		dList.insert(newInstance2);
+		assertFalse(dList.isEmpty());
+		dList.remove(newInstance2);
+		assertTrue(dList.isEmpty());
+	}
+
+	@Test
+	public void testInsert1() {
+		try {
+			dList.insert(null);
+			fail(&quot;Should not work&quot;);
+		} catch (Exception e) {
+		}
+		dList.insert(newInstance1);
+		assertEquals(newInstance1, dList.getCursor());
+	}
+
+	@Test
+	public void testInsert2() {
+		dList.insert(newInstance1);
+		assertEquals(newInstance1, dList.getCursor());
+
+		dList.insert(newInstance2);
+		assertEquals(newInstance2, dList.getCursor());
+
+		dList.goToBeginning();
+		dList.insert(newInstance3);
+		assertEquals(newInstance3, dList.getCursor());
+		assertEquals(newInstance2, dList.getNext());
+	}
+
+	@Test
+	public void testRemove() {
+		testRemove(newInstance1);
+		testRemove(newInstance1, newInstance2, newInstance3);
+	}
+
+	private void testRemove(T newInstance1) {
+		T deleted = dList.remove();
+		assertNull(deleted);
+
+		deleted = dList.remove(newInstance1);
+		assertNull(deleted);
+
+		dList.insert(newInstance1);
+		deleted = dList.remove();
+		assertEquals(newInstance1, deleted);
+
+		assertTrue(dList.isEmpty());
+	}
+
+	private void testRemove(T newInstance1, T newInstance2, T newInstance3) {
+		T deleted;
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+		T prev = dList.getPrev();
+		assertEquals(newInstance2, prev);
+		deleted = dList.remove();
+		assertEquals(newInstance3, dList.getCursor());
+		assertEquals(newInstance2, deleted);
+		deleted = dList.remove(newInstance2);
+		assertNull(deleted);
+		dList.insert(newInstance2);
+		deleted = dList.remove(newInstance1);
+		assertEquals(newInstance1, deleted);
+		deleted = dList.remove();
+		assertEquals(newInstance3, deleted);
+		deleted = dList.remove();
+		assertEquals(newInstance2, deleted);
+		assertTrue(dList.isEmpty());
+	}
+
+	@Test
+	public void testClear() {
+		dList.clear();
+		assertTrue(dList.isEmpty());
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+		assertFalse(dList.isEmpty());
+		dList.clear();
+		assertTrue(dList.isEmpty());
+
+		dList.insert(newInstance3);
+		assertFalse(dList.isEmpty());
+		assertEquals(dList.getCursor(), newInstance3);
+		dList.clear();
+		assertTrue(dList.isEmpty());
+		assertNull(dList.getCursor());
+	}
+
+	@Test
+	public void testReplace() {
+		try {
+			dList.replace(newInstance1);
+			fail(&quot;Should not work&quot;);
+		} catch (Exception e) {
+		}
+
+		dList.insert(newInstance1);
+		try {
+			dList.replace(null);
+			fail(&quot;Should not work&quot;);
+		} catch (Exception e) {
+		}
+		dList.insert(newInstance2);
+		dList.insert(newInstance1);
+
+		assertEquals(dList.getCursor(), newInstance1);
+		dList.replace(newInstance3);
+		assertEquals(dList.getCursor(), newInstance3);
+
+		dList.goToBeginning();
+		assertEquals(dList.getCursor(), newInstance1);
+		dList.replace(newInstance3);
+		assertEquals(dList.getCursor(), newInstance3);
+
+	}
+
+	@Test
+	public void testReplaceNextAndPrev() {
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance1);
+		dList.insert(newInstance3);
+
+		dList.getPrev();
+		dList.replace(newInstance2);
+		assertEquals(dList.getCursor(), newInstance2);
+		assertEquals(dList.getPrev(), newInstance1);
+		assertEquals(dList.getNext(), newInstance2);
+		assertEquals(dList.getNext(), newInstance3);
+		assertEquals(dList.getPrev(), newInstance2);
+	}
+
+	@Test
+	public void testGoToBeginning() {
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+
+		assertEquals(dList.getCursor(), newInstance3);
+		assertEquals(dList.goToBeginning(), true);
+		assertEquals(dList.getCursor(), newInstance1);
+	}
+
+	@Test
+	public void testGoToEnd() {
+		assertEquals(dList.goToBeginning(), false);
+		assertEquals(dList.goToEnd(), false);
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+
+		assertEquals(dList.getCursor(), newInstance3);
+		assertEquals(dList.goToBeginning(), true);
+		assertEquals(dList.getCursor(), newInstance1);
+		assertEquals(dList.goToEnd(), true);
+		assertEquals(dList.getCursor(), newInstance3);
+	}
+
+	@Test
+	public void testPrevAndNext() {
+
+		assertFalse(dList.hasNext());
+		assertFalse(dList.hasPrev());
+		assertNull(dList.getNext());
+		assertNull(dList.getPrev());
+
+		dList.insert(newInstance1);
+		assertFalse(dList.hasNext());
+		assertFalse(dList.hasPrev());
+		assertNull(dList.getNext());
+		assertNull(dList.getPrev());
+
+		dList.insert(newInstance2);
+		assertFalse(dList.hasNext());
+		assertTrue(dList.hasPrev());
+		assertNull(dList.getNext());
+		assertEquals(dList.getPrev(), newInstance1);
+		assertEquals(dList.getCursor(), newInstance1);
+		assertNull(dList.getPrev());
+		assertEquals(dList.getCursor(), newInstance1);
+		assertEquals(dList.getNext(), newInstance2);
+		assertEquals(dList.getCursor(), newInstance2);
+
+		dList.insert(newInstance3);
+
+	}
+
+	@Test
+	public void testHasNextAndPrev() </B></FONT>
+	{//TODO Add tests for HasNext and HasPrev methods.
+		
+		Assert.assertFalse(this.dList.hasNext());
+        Assert.assertFalse(this.dList.hasPrev());
+        this.dList.insert(this.newInstance1);
+        Assert.assertFalse(this.dList.hasNext());
+        Assert.assertFalse(this.dList.hasPrev());
+        this.dList.insert(this.newInstance2);
+        Assert.assertFalse(this.dList.hasNext());
+        Assert.assertTrue(this.dList.hasPrev());
+        Assert.assertNull(this.dList.getNext());
+        Assert.assertEquals(this.dList.getPrev(), this.newInstance1);
+        Assert.assertEquals(this.dList.getCursor(), this.newInstance1);
+        Assert.assertNull(this.dList.getPrev());
+        Assert.assertEquals(this.dList.getCursor(), this.newInstance1);
+        Assert.assertEquals(this.dList.getNext(), this.newInstance2);
+        Assert.assertEquals(this.dList.getCursor(), this.newInstance2);
+        this.dList.insert(this.newInstance3);
+
+
+		
+		
+  
+		
+		
+		
+	}
+
+
+}
+</PRE>
+<HR>
+<H3><CENTER>ListTestStaff.java</CENTER></H3><HR>
+<PRE>
+<A NAME="4"></A><FONT color="#151b8d"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match40-0.html#4',2,'match40-top.html#4',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import org.junit.Before;
+import org.junit.Test;
+
+public abstract class ListTestStaff&lt;T&gt; {
+
+	private DListFactory&lt;T&gt; dListFactory = new DListFactory&lt;T&gt;();
+	private List&lt;T&gt; dList;
+	private T newInstance1;
+	private T newInstance2;
+	private T newInstance3;
+
+	@Before
+	public void setUp() throws Exception {
+		dList = dListFactory.getDList(&quot;DLinkedList&quot;);
+
+		newInstance1 = getParameterInstance();
+		newInstance2 = getParameterInstance();
+		newInstance3 = getParameterInstance();
+
+		if ((newInstance1.equals(newInstance2)) || (newInstance1.equals(newInstance3))
+				|| (newInstance3.equals(newInstance2))) {
+			fail(&quot;new instances should be different&quot;);
+		}
+	}
+
+	/**
+	 * @return a new instance of parameter T. Two instances which are created by
+	 *         this method should be different according to &quot;equals&quot; method. For
+	 *         example for T=Object, the implementation can be &quot;return new
+	 *         Object();&quot;.
+	 */
+	public abstract T getParameterInstance();
+	
+//	@Test
+//	public void testGetParameterInstance() {
+//		if ((newInstance1.equals(newInstance2)) || (newInstance1.equals(newInstance3))
+//				|| (newInstance3.equals(newInstance2))) {
+//			fail(&quot;new instances should be different&quot;);
+//		}
+//	}
+	
+	@Test
+	public void testIsEmpty() {
+		assertTrue(dList.isEmpty());
+		dList.insert(newInstance1);
+		assertFalse(dList.isEmpty());
+		dList.insert(newInstance2);
+		assertFalse(dList.isEmpty());
+		dList.clear();
+		assertTrue(dList.isEmpty());
+		dList.insert(newInstance2);
+		assertFalse(dList.isEmpty());
+		dList.remove(newInstance2);
+		assertTrue(dList.isEmpty());
+	}
+
+	@Test
+	public void testInsert1() {
+		try {
+			dList.insert(null);
+			fail(&quot;Should not work&quot;);
+		} catch (Exception e) {
+		}
+		dList.insert(newInstance1);
+		assertEquals(newInstance1, dList.getCursor());
+	}
+
+	@Test
+	public void testInsert2() {
+		dList.insert(newInstance1);
+		assertEquals(newInstance1, dList.getCursor());
+
+		dList.insert(newInstance2);
+		assertEquals(newInstance2, dList.getCursor());
+
+		dList.goToBeginning();
+		dList.insert(newInstance3);
+		assertEquals(newInstance3, dList.getCursor());
+		assertEquals(newInstance2, dList.getNext());
+	}
+
+	@Test
+	public void testRemove() {
+		testRemove(newInstance1);
+		testRemove(newInstance1, newInstance2, newInstance3);
+	}
+
+	private void testRemove(T newInstance1) {
+		T deleted = dList.remove();
+		assertNull(deleted);
+
+		deleted = dList.remove(newInstance1);
+		assertNull(deleted);
+
+		dList.insert(newInstance1);
+		deleted = dList.remove();
+		assertEquals(newInstance1, deleted);
+
+		assertTrue(dList.isEmpty());
+	}
+
+	private void testRemove(T newInstance1, T newInstance2, T newInstance3) {
+		T deleted;
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+		T prev = dList.getPrev();
+		assertEquals(newInstance2, prev);
+		deleted = dList.remove();
+		assertEquals(newInstance3, dList.getCursor());
+		assertEquals(newInstance2, deleted);
+		deleted = dList.remove(newInstance2);
+		assertNull(deleted);
+		dList.insert(newInstance2);
+		deleted = dList.remove(newInstance1);
+		assertEquals(newInstance1, deleted);
+		deleted = dList.remove();
+		assertEquals(newInstance3, deleted);
+		deleted = dList.remove();
+		assertEquals(newInstance2, deleted);
+		assertTrue(dList.isEmpty());
+	}
+
+	@Test
+	public void testClear() {
+		dList.clear();
+		assertTrue(dList.isEmpty());
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+		assertFalse(dList.isEmpty());
+		dList.clear();
+		assertTrue(dList.isEmpty());
+
+		dList.insert(newInstance3);
+		assertFalse(dList.isEmpty());
+		assertEquals(dList.getCursor(), newInstance3);
+		dList.clear();
+		assertTrue(dList.isEmpty());
+		assertNull(dList.getCursor());
+	}
+
+	@Test
+	public void testReplace() {
+		try {
+			dList.replace(newInstance1);
+			fail(&quot;Should not work&quot;);
+		} catch (Exception e) {
+		}
+
+		dList.insert(newInstance1);
+		try {
+			dList.replace(null);
+			fail(&quot;Should not work&quot;);
+		} catch (Exception e) {
+		}
+		dList.insert(newInstance2);
+		dList.insert(newInstance1);
+
+		assertEquals(dList.getCursor(), newInstance1);
+		dList.replace(newInstance3);
+		assertEquals(dList.getCursor(), newInstance3);
+
+		dList.goToBeginning();
+		assertEquals(dList.getCursor(), newInstance1);
+		dList.replace(newInstance3);
+		assertEquals(dList.getCursor(), newInstance3);
+
+	}
+
+	@Test
+	public void testReplaceNextAndPrev() {
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance1);
+		dList.insert(newInstance3);
+
+		dList.getPrev();
+		dList.replace(newInstance2);
+		assertEquals(dList.getCursor(), newInstance2);
+		assertEquals(dList.getPrev(), newInstance1);
+		assertEquals(dList.getNext(), newInstance2);
+		assertEquals(dList.getNext(), newInstance3);
+		assertEquals(dList.getPrev(), newInstance2);
+	}
+
+	@Test
+	public void testGoToBeginning() {
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+
+		assertEquals(dList.getCursor(), newInstance3);
+		assertEquals(dList.goToBeginning(), true);
+		assertEquals(dList.getCursor(), newInstance1);
+	}
+
+	@Test
+	public void testGoToEnd() {
+		assertEquals(dList.goToBeginning(), false);
+		assertEquals(dList.goToEnd(), false);
+
+		dList.insert(newInstance1);
+		dList.insert(newInstance2);
+		dList.insert(newInstance3);
+
+		assertEquals(dList.getCursor(), newInstance3);
+		assertEquals(dList.goToBeginning(), true);
+		assertEquals(dList.getCursor(), newInstance1);
+		assertEquals(dList.goToEnd(), true);
+		assertEquals(dList.getCursor(), newInstance3);
+	}
+
+	@Test
+	public void testPrevAndNext() {
+
+		assertFalse(dList.hasNext());
+		assertFalse(dList.hasPrev());
+		assertNull(dList.getNext());
+		assertNull(dList.getPrev());
+
+		dList.insert(newInstance1);
+		assertFalse(dList.hasNext());
+		assertFalse(dList.hasPrev());
+		assertNull(dList.getNext());
+		assertNull(dList.getPrev());
+
+		dList.insert(newInstance2);
+		assertFalse(dList.hasNext());
+		assertTrue(dList.hasPrev());
+		assertNull(dList.getNext());
+		assertEquals(dList.getPrev(), newInstance1);
+		assertEquals(dList.getCursor(), newInstance1);
+		assertNull(dList.getPrev());
+		assertEquals(dList.getCursor(), newInstance1);
+		assertEquals(dList.getNext(), newInstance2);
+		assertEquals(dList.getCursor(), newInstance2);
+
+		dList.insert(newInstance3);
+
+	}
+
+	@Test
+	public void testHasNextAndPrev() {
+		assertFalse(dList.hasNext());
+		assertFalse(dList.hasPrev());
+		dList.insert(newInstance1);
+		assertFalse(dList.hasNext());
+		assertFalse(dList.hasPrev());
+		dList.insert(newInstance2);
+		assertFalse(dList.hasNext());
+		assertTrue(dList.hasPrev());
+		dList.getPrev();
+		assertTrue(dList.hasNext());
+		assertFalse(dList.hasPrev());
+
+	}
+}</B></FONT>
+</PRE>
+<HR>
+<H3><CENTER>ListTestStringStaff.java</CENTER></H3><HR>
+<PRE>
+<A NAME="1"></A><FONT color="#f63526"><div style="position:absolute;left:0"><A HREF="javascript:ZweiFrames('match40-0.html#1',2,'match40-top.html#1',1)"><IMG SRC="back.gif" ALT="other" BORDER="0" ALIGN="left"></A></div><B>public class ListTestStringStaff extends ListTestStaff&lt;String&gt;{
+	public static int i=0;
+	@Override
+	public String getParameterInstance() {
+		i++;
+		return String.valueOf(i);
+	}
+	
+
+}</B></FONT>
+</PRE>
+</BODY>
+</HTML>

@@ -1,0 +1,17 @@
+Note: ./DLinkedList.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+./DLinkedList.java:147: warning: [unchecked] unchecked cast
+		return (T)(cursor = cursor.getNext());
+		          ^
+  required: T
+  found:    DLinkedList<T>.DNode
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+./DLinkedList.java:169: warning: [cast] redundant cast to T
+		return (T) cursor.getElement();
+		       ^
+  where T is a type-variable:
+    T extends Object declared in class DLinkedList
+error: warnings found and -Werror specified
+1 error
+2 warnings
