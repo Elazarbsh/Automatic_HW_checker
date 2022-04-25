@@ -1,6 +1,0 @@
-Infix: ((2 + 3) * (4 * 6))
-Prefix:  *  +  2  3  *  4  6 
-Value: 120.0
-Heigt: 2
-Size: 7
-IsLeaf: false

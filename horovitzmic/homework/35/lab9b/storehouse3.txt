@@ -1,6 +1,0 @@
-define    NVIDIA_gtx_3090	20
-define    PS5				1
-order     NVIDIA_gtx_3090   10
-order     PS5				100
-supply    PS5				1
-supply    PS5				1

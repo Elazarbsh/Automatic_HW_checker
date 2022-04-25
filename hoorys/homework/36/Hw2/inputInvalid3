@@ -1,4 +1,0 @@
-def F(x) := x;
-def G(y) := y;
-def F(x) := G(x);
-F(3);

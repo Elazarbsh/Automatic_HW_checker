@@ -1,6 +1,0 @@
-Pyramid: Base shape=The Polygon points are ( Point [x=-1.00, y=-1.00] Point [x=-1.00, y=1.00] Point [x=1.00, y=1.00] Point [x=1.00, y=-1.00] ). z-base shape =-1.00. Apex=(0.00,1.00,2.00)
-Prism: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=0.00] Point [x=1.00, y=1.00] ). z-values for bases=0.00,1.00
-Pyramid: Base shape=The Polygon points are ( Point [x=-1.00, y=-1.00] Point [x=-1.00, y=1.00] Point [x=1.00, y=1.00] Point [x=1.00, y=-1.00] ). z-base shape =1.00. Apex=(1.00,1.00,1.00)
-Prism: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=0.00] Point [x=1.00, y=1.00] ). z-values for bases=2.00,2.00
-Prism: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] ). z-values for bases=-2.00,1.00
-Pyramid: Base shape=The Polygon points are ( Point [x=-1.00, y=1.00] Point [x=0.00, y=-5.00] Point [x=5.00, y=1.00] Point [x=0.00, y=0.00] ). z-base shape =0.00. Apex=(0.00,1.00,1.00)

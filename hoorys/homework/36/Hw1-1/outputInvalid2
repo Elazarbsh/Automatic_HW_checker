@@ -1,7 +1,0 @@
-KEYWORD[insert]
-KEYWORD[into]
-IDENTIFIER[dept]
-KEYWORD[values]
-LPAREN[(]
-NUMBER[1]
-COMMA[,]

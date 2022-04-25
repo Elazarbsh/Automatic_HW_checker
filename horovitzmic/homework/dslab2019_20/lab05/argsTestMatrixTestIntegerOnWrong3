@@ -1,1 +1,0 @@
--DclassToTest=SparseMatrixWrongGetTrans org.junit.runner.JUnitCore MatrixTestInteger

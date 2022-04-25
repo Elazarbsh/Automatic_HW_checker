@@ -1,6 +1,0 @@
-Infix: (2 + 3)
-Prefix:  +  2  3 
-Value: 5.0
-Heigt: 1
-Size: 3
-IsLeaf: false

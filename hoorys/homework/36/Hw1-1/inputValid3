@@ -1,8 +1,0 @@
-/* 
- * Departement table
- */
-CREATE TABLE dept (
-deptno INT NOT NULL,
-dname VARCHAR(14), -- formal department name
-loc VARCHAR(13)    -- a free text string specifying the location
-)

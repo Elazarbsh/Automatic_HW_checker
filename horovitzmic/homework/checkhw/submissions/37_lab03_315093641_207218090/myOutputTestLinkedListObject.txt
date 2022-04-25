@@ -1,8 +1,0 @@
-JUnit version 4.12
-........Bad New Element
-...Remove from Null Link
-
-Time: 0.004
-
-OK (11 tests)
-

@@ -1,6 +1,0 @@
-Begin
-insert into dept values (1,'ACCOUNTING','ST LOUIS')
-insert into dept values (2,'RESEARCH','NEW YORK')
-insert into dept values (3,'SALES','ATLANTA')
-insert into dept values (4, 'OPERATIONS','SEATTLE')
-End
