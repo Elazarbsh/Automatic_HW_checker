@@ -138,6 +138,29 @@ class Test:
             return True
         return self._isSame(fileName, correctFileName)
 
+
+    def remove_whitespace(self,_list):
+        delimiter = '\n'
+        result1 = list(filter(lambda val: val != delimiter, _list))
+        return [arg.strip() for arg in result1]
+
+    def compare_files(self,fpath1, fpath2):
+        with open(fpath1, 'r') as file1, open(fpath2, 'r') as file2:
+            file1_list = file1.readlines()
+            file2_list = file2.readlines()
+            # TODO : add flag to config hw file
+            ignore_whitespace = True
+            if ignore_whitespace:
+                file1_list = self.remove_whitespace(file1_list)
+                file2_list = self.remove_whitespace(file2_list)
+
+            for linef1, linef2 in zip(file1_list, file2_list):
+                if linef1 != linef2:
+                    return False
+            return next(file1, None) == None and next(file2, None) == None
+
+
+
     def _isSame(self, fileName, correctFileName):
         fileSize = os.path.getsize(fileName)
         expectedSize = os.path.getsize(correctFileName)
@@ -147,7 +170,7 @@ class Test:
             tests_obj[fileName].error += "file " + fileName+ " too big, skipping comparison. Please compare against "+ correctFileName+ " manually\n"
             return False
         filecmp.clear_cache()
-        if filecmp.cmp(fileName, correctFileName):
+        if self.compare_files(fileName, correctFileName):
             return True
 
         diffFileName = "diff." + fileName
