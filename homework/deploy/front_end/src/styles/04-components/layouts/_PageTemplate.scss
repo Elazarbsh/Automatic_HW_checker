@@ -1,0 +1,80 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- React Component - PageTemplate Styles ----------------------------------------------------------------------- */
+
+.mantine-Container-root.Main {
+    position: relative;
+    max-width: unset;
+    padding-inline: 0;
+
+    .Background {
+        height: 30rem;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        overflow: hidden;
+        opacity: 0.8;
+
+        @include break-point(below, 576px) {
+            width: 104%;
+            left: -2%;
+        }
+        @include break-point(below, 380px) {
+            width: 106%;
+            left: -3%;
+        }
+
+        svg {
+            min-height: 110%;
+            min-width: 110%;
+            position: absolute;
+            top: -1.5rem;
+            pointer-events: none;
+
+            &.shapes {
+                opacity: 0.125;
+                stroke: $color-accent-9;
+
+                #SvgjsMask1027 rect {
+                    fill: $color-accent-6;
+                }
+            }
+            &.blobs {
+                opacity: 0.075;
+
+                & > g {
+                    & > rect {
+                        fill: $color-accent-5;
+                    }
+                    path {
+                        fill: $color-accent-3;
+                    }
+                }
+            }
+        }
+    }
+
+    .Section {
+        padding-inline: $size-md;
+    }
+
+    .Main-Paper {
+        @include break-point(below, 576px) {
+            width: 106%;
+            transform: translateX(-3%);
+            padding: $size-md;
+        }
+        @include break-point(below, 380px) {
+            width: 113%;
+            transform: translateX(-6%);
+            padding: $size-sm;
+        }
+        .Section {
+            padding-inline: 0;
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- React Component - Header Styles ----------------------------------------------------------------------------- */
+
+.Header {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    height: $header-height;
+    background-color: $body-bg-color;
+    padding-block: $size-lg;
+    width: 100%;
+
+    &-Container {
+        height: 100%;
+        align-content: center;
+    }
+
+    .Logo {
+        height: calc(0.575 * $header-height);
+    }
+
+    // .go-back-btn {
+    //     width: fit-content;
+    //     color: $color-primary-6;
+    //     font-weight: $fontWeight-bold;
+    //     font-size: $fontSize-lg;
+    //     padding: $size-sm;
+
+    //     &:hover {
+    //         color: $color-primary-9;
+    //     }
+
+    //     svg {
+    //         stroke-width: 3.5px;
+    //         margin-right: $size-2xs;
+    //     }
+    // }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

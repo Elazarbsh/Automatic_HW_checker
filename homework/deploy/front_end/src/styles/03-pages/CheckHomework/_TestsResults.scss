@@ -1,0 +1,92 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- React Page Component - CheckHomework Sub Pages - TestsResults ----------------------------- */
+
+.TestsResults {
+    .overall-summary {
+        margin-bottom: $size-3xl;
+
+        &-content {
+            padding: $size-xl !important;
+            border: 3px solid;
+            border-radius: $radius-lg;
+
+            @include on-theme(light) {
+                border-color: $color-gray-1;
+            }
+            @include on-theme(dark) {
+                border-color: $color-dark-6;
+            }
+        }
+    }
+
+    .results-accordion {
+        .mantine-Accordion-item {
+            border-bottom: 0;
+            overflow: hidden;
+            transition: box-shadow 150ms $animation-function-default;
+            border: 3px solid transparent;
+            border-radius: $radius-lg;
+            margin-bottom: $size-sm;
+            @include on-theme(light) {
+                border-color: $color-gray-1;
+            }
+            @include on-theme(dark) {
+                border-color: $color-dark-6;
+            }
+        }
+
+        .mantine-Accordion-control {
+            padding: $size-lg;
+
+            border: 0;
+            opacity: 0.9;
+            @include on-theme(light) {
+                color: $color-black;
+            }
+            @include on-theme(dark) {
+                color: $color-white;
+            }
+            &:hover,
+            &:active,
+            &:focus {
+                opacity: 1;
+            }
+
+            .mantine-Accordion-icon {
+                opacity: 0.4;
+            }
+
+            input[type='radio'] {
+                display: none;
+
+                &:checked + label .mantine-ActionIcon-hover {
+                    color: $color-primary-6;
+                }
+            }
+            .mantine-ActionIcon-hover {
+                &:hover {
+                    @include on-theme(light) {
+                        background-color: $color-gray-1;
+                    }
+                }
+            }
+        }
+        .mantine-Accordion-contentInner {
+            padding: $size-xl;
+        }
+    }
+
+    .accordion-item-number {
+        font-family: $fontFamily-title;
+        font-size: $fontSize-xl;
+        font-weight: $fontWeight-bold;
+        color: var(--green-7);
+
+        &.failed {
+            color: var(--red-7);
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

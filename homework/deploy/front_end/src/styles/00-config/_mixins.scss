@@ -1,0 +1,84 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- SCSS Mixins ------------------------------------------------------------------------------- */
+
+/**
+ * Google Fonts SCSS Mixin.
+ *
+ * @use example:
+ *      @include google-font(
+ *          ('Open Sans', ('400' '700' '400i')),
+ *          ('Poppins', ('400')),
+ *          ('Roboto', ('300' '400' '700' '900' '700i'))
+ *      );
+**/
+@mixin google-font($list...) {
+    $fonts: '';
+
+    @each $font-name, $font-weights in $list {
+        $font-name: str-replace($font-name, ' ', '+');
+        $fonts: $fonts + 'family=#{$font-name}:' + _gf-get-font-weight-string($font-weights) + '&';
+    }
+
+    @import url('https://fonts.googleapis.com/css2?#{$fonts}display=swap');
+}
+
+/**  */
+@mixin on-theme($theme) {
+    :root[data-theme='#{$theme}'] & {
+        @content;
+    }
+}
+
+/**
+ * Screen Media Queries Mixin.
+ *
+ * @use examples:
+ *      html {
+ *          @include break-point (above, 1441px, width) {
+ *              font-size: 20px;
+ *          }
+ *          @include break-point (below, $screenSize-sm) {
+ *              font-size: 14px;
+ *          }
+ *          @include break-point (below, 300px, height) {
+ *              transform: rotate(90deg);
+ *          }
+ *      }
+**/
+@mixin break-point($key, $sizeValue, $viewPortValue: width) {
+    @if $key == above {
+        $key: min;
+    } @else if $key == below {
+        $key: max;
+    } @else {
+        @error "Property #{$key} must be either 'above' or 'below'.";
+    }
+
+    @if $viewPortValue != width and $viewPortValue != height {
+        @error "Property #{$viewPortValue} must be either 'width' or 'height'.";
+    }
+
+    @media only screen and (#{$key}-#{$viewPortValue}: #{$sizeValue}) {
+        @content;
+    }
+}
+
+/** Utility Mixins - Fixed Relative Ratio. */
+@mixin spread-down-property($property, $highestValue, $difference, $selectors...) {
+    @for $i from 0 to length($selectors) {
+        #{nth($selectors, $i + 1)} {
+            #{$property}: #{$highestValue * (1 - ($i * $difference))};
+        }
+    }
+}
+
+/** Utility Mixins - Flex Positioning. */
+@mixin flex($direction, $justifyValue) {
+    display: flex;
+    align-items: center;
+    flex-direction: $direction;
+    justify-content: $justifyValue;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

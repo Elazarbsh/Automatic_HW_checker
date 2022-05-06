@@ -48,6 +48,8 @@ COPY horovitzmic /var/www/html/horovitzmic
 
 COPY homework/deploy/hwcheck /usr/bin
 
+
+
 RUN chmod -R 777 /var/www/html
 RUN ln -sf /usr/bin/python3 /usr/local/bin/python3
 

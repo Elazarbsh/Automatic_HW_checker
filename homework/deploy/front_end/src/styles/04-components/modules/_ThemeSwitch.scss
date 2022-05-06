@@ -1,0 +1,68 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- React Component - ThemeSwitch Styles ------------------------------------------------------ */
+
+.ThemeSwitch {
+    position: relative;
+
+    & * {
+        cursor: pointer;
+    }
+
+    .icon {
+        pointer-events: none;
+        position: absolute;
+        z-index: 1;
+        top: 0.2rem;
+        color: $color-white;
+
+        @include on-theme(dark) {
+            color: $color-dark-8;
+        }
+
+        &-sun {
+            left: 0.25rem;
+        }
+
+        &-moon {
+            right: 0.25rem;
+        }
+    }
+
+    .switch {
+        input {
+            width: 3.6rem;
+            height: 1.8rem;
+            background-color: $color-primary-6;
+            border-color: $color-primary-6;
+            transition: none;
+
+            &:hover {
+                background-color: $color-primary-8;
+            }
+
+            &::before {
+                height: 1.4rem;
+                width: 1.4rem;
+                border-color: $color-primary-0;
+                border-width: 2px;
+
+                @include on-theme(dark) {
+                    background-color: $color-dark-7;
+                    border-color: $color-dark-9;
+                }
+            }
+
+            &:checked::before {
+                transform: translateX(1.9rem);
+            }
+
+            :checked {
+                background-color: $color-primary-9;
+                border-color: $color-primary-9;
+            }
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

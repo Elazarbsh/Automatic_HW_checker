@@ -1,0 +1,138 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- React Component Styles - FileUploader ----------------------------------------------------- */
+
+.FileUploader {
+    max-width: 55rem;
+    width: 100%;
+    margin: auto;
+    -webkit-font-smoothing: antialiased;
+
+    .mantine-Dropzone-root {
+        border-width: 3px;
+
+        @include on-theme(light) {
+            border-color: $color-gray-1;
+        }
+        @include on-theme(dark) {
+            border-color: $color-dark-6;
+        }
+
+        .dropzone-inner {
+            pointer-events: none;
+            min-height: 15rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+    }
+
+    li.mantine-Paper-root.mantine-Group-child {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 3px solid;
+
+        @include on-theme(light) {
+            border-color: $color-gray-1;
+        }
+        @include on-theme(dark) {
+            border-color: $color-dark-6;
+        }
+
+        &:hover {
+            @include on-theme(light) {
+                background-color: $color-gray-0;
+            }
+            @include on-theme(dark) {
+                background-color: $color-dark-6;
+            }
+        }
+
+        .preview-file-inner {
+            width: 100%;
+        }
+
+        .file-data {
+            display: flex;
+            width: calc(100% - 3.25rem);
+
+            &-icon {
+                width: 2.2rem;
+                margin-right: $size-sm;
+                margin-bottom: -0.225rem;
+            }
+        }
+    }
+
+    .check-homework-btn {
+        border: 0;
+        background: linear-gradient(
+            135deg,
+            $color-primary-2 -10%,
+            $color-primary-5 40%,
+            $color-primary-8 100%
+        );
+        font-size: $fontSize-md;
+        width: unset;
+        height: unset;
+        padding: 1em 1.6em;
+        border-radius: $radius-lg;
+
+        .mantine-Button-inner {
+            filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.25));
+        }
+
+        .mantine-Button-icon {
+            margin-left: 0;
+            transition: transform 350ms $animation-function-back;
+
+            svg {
+                stroke-width: 0.25em;
+            }
+        }
+
+        &:hover {
+            background: linear-gradient(
+                135deg,
+                $color-primary-3 -10%,
+                $color-primary-5 30%,
+                $color-primary-9 90%
+            );
+
+            .mantine-Button-icon {
+                transform: translateX(0.2em);
+            }
+        }
+
+        @include on-theme(dark) {
+            background: linear-gradient(
+                135deg,
+                $color-primary-2 -40%,
+                $color-primary-6 40%,
+                $color-primary-9 100%
+            );
+            color: $color-dark-8;
+            font-weight: 900;
+
+            &:hover {
+                background: linear-gradient(
+                    135deg,
+                    $color-primary-3 -30%,
+                    $color-primary-6 30%,
+                    $color-primary-9 70%,
+                    $color-dark-9 140%
+                );
+            }
+
+            .mantine-Button-inner {
+                filter: drop-shadow(0px 0px 6px rgba(0, 0, 0, 0.1));
+            }
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

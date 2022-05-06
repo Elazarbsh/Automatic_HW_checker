@@ -1,0 +1,20 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- Overwriting Mantine Base Styles ----------------------------------------------------------- */
+
+.mantine-ScrollArea-scrollbar {
+    z-index: $layer-foreground;
+}
+
+.mantine-Notification-body {
+    .mantine-Notification-title {
+        font-size: 1.1em;
+        font-weight: $fontWeight-bold;
+    }
+}
+
+.mantine-Text-root {
+    overflow-wrap: break-word !important;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

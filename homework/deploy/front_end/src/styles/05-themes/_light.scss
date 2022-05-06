@@ -1,0 +1,48 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- Light Theme Styles ------------------------------------------------------------------------ */
+
+// default theme
+:root,
+:root[data-theme='light'] {
+    /* ---------------------------------------------------- */
+    /* Color-Scheme Base Property ------------------------- */
+
+    color-scheme: light;
+
+    --primary: var(--primary-5);
+    --primary-0: var(--green-0);
+    --primary-1: var(--green-1);
+    --primary-2: var(--green-2);
+    --primary-3: var(--green-3);
+    --primary-4: var(--green-4);
+    --primary-5: var(--green-5);
+    --primary-6: var(--green-6);
+    --primary-7: var(--green-7);
+    --primary-8: var(--green-8);
+    --primary-9: var(--green-9);
+
+    --accent: var(--accent-5);
+    --accent-0: var(--ocean-0);
+    --accent-1: var(--ocean-1);
+    --accent-2: var(--ocean-2);
+    --accent-3: var(--ocean-3);
+    --accent-4: var(--ocean-4);
+    --accent-5: var(--ocean-5);
+    --accent-6: var(--ocean-6);
+    --accent-7: var(--ocean-7);
+    --accent-8: var(--ocean-8);
+    --accent-9: var(--ocean-9);
+
+    /* ---------------------------------------------------- */
+    /* Colors In Use -------------------------------------- */
+
+    --body-bg: var(--white);
+
+    /* ---------------------------------------------------- */
+    /* Specific Adjustments ------------------------------- */
+
+    // ...
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

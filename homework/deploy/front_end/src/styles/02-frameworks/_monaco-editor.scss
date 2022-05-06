@@ -1,0 +1,21 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- Overwriting Monaco-Editor Base Styles ----------------------------------------------------- */
+
+.monaco-editor,
+.monaco-editor-background,
+.monaco-editor .inputarea.ime-input,
+.monaco-mouse-cursor-text {
+    @include on-theme(dark) {
+        background-color: $color-dark-7;
+    }
+}
+
+.monaco-editor .margin,
+.minimap-decorations-layer {
+    @include on-theme(dark) {
+        background-color: $color-dark-8;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

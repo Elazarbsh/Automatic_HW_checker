@@ -1,0 +1,72 @@
+{
+    "overview": {
+        "course": "Principles of Programming Languages, 2021-22, Fall, Shlomo Hoory",
+        "assignment": "Hw4, Homework 4",
+        "deadline": "2023-01-22 23:55:00",
+        "test-input": "Testing content of /var/www/html/homework/deploy/36_Hw4_203130851_312238629",
+        "summary": [
+            "Grade for correct format and compilation: 40",
+            "OVERALL GRADE: 40.0",
+            "This grade DOES NOT ACCURATELY REFLECT the merit of the work which is affected by ADDITIONAL FACTORS such as:",
+            "code design, algorithmic efficiency, adequacy of solution, code style, plagiarism, etc..."
+        ]
+    },
+    "compilation": {
+        "error": "",
+        "error_file": "",
+        "link_error_file": "",
+        "log": ""
+    },
+    "warnings": [],
+    "exceptions": [],
+    "tests": {
+        "1": {
+            "name": "1",
+            "result": "Passed 1 test(s)",
+            "grade": "Grade for this test: 0.0/0.0",
+            "log": "Running Test: #1",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw4/input1",
+            "output_file": "myOutput1.txt",
+            "error_file": "myError1.txt",
+            "diff_file": "",
+            "error": ""
+        },
+        "2": {
+            "name": "2",
+            "grade": "Grade for this test: 0.0/0.0\n",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw4/input2",
+            "output_file": "myOutput2.txt",
+            "error_file": "myError2.txt",
+            "diff_file": "",
+            "log": "Running Test:2\n",
+            "result": "Passed 1 test(s)",
+            "error": ""
+        },
+        "3": {
+            "name": "3",
+            "grade": "Grade for this test: 0.0/0.0\n",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw4/input3",
+            "output_file": "myOutput3.txt",
+            "error_file": "myError3.txt",
+            "diff_file": "",
+            "log": "Running Test:3\n",
+            "result": "Passed 1 test(s)",
+            "error": ""
+        },
+        "4": {
+            "name": "4",
+            "grade": "Grade for this test: 0.0/0.0\n",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw4/input4",
+            "output_file": "myOutput4.txt",
+            "error_file": "myError4.txt",
+            "diff_file": "diff.myOutput4.txt",
+            "log": "Running Test:4\nComparing myOutput4.txt against /var/www/html/hoorys/homework/36/Hw4/output4\n",
+            "result": "Failed 1 out of 1 test(s)",
+            "error": "Please inspect the difference file diff.myOutput4.txt\n"
+        }
+    }
+}

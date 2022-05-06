@@ -1,0 +1,42 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- React Page Component - CheckHomework Sub Pages - RunTests --------------------------------- */
+
+.RunTests {
+    .error-icon {
+        color: var(--red-6);
+        height: 5rem;
+        width: 5rem;
+        display: block;
+        margin: auto;
+    }
+
+    .action-link {
+        color: $color-primary-6;
+    }
+}
+
+.FileDetails {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-icon {
+        width: 3rem;
+        margin-right: 1rem;
+    }
+
+    &-data {
+        max-width: 70%;
+    }
+    &-name {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+    &-size {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

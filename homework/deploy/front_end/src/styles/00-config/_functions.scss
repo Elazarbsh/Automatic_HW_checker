@@ -1,0 +1,44 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- SCSS Functions ---------------------------------------------------------------------------- */
+
+/**
+ * Replace `$substr` with `$replace` in `$str`
+ *  @param {String} $string - Initial string
+ *  @param {String} $substr - Substring to replace
+ *  @param {String} $replace ('') - New value
+ *  @return {String} - Updated string
+**/
+@function str-replace($str, $substr, $replace: '') {
+    $index: str-index($str, $substr);
+
+    @if $index {
+        @return str-slice($str, 1, $index - 1) + $replace +
+            str-replace(str-slice($str, $index + str-length($substr)), $substr, $replace);
+    }
+    @return $str;
+}
+
+/** Google Fonts SCSS Mixin - Helper Functions. */
+@function _gf-get-font-weight-string($font-weights) {
+    $str: 'ital,wght@';
+
+    @each $item in $font-weights {
+        $type: '0';
+        $italic: str-index($item, 'i') != null;
+
+        @if $italic {
+            $item: str-replace($item, 'i', '');
+            $type: '1';
+        } @else {
+            $type: '0';
+        }
+
+        $str: $str + '#{$type},#{$item};';
+    }
+
+    $str: str-slice($str, 0, -2);
+    @return $str;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

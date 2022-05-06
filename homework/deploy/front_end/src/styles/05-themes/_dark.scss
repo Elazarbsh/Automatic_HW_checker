@@ -1,0 +1,48 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- Dark Theme Styles ------------------------------------------------------------------------- */
+
+:root[data-theme='dark'] {
+    /* ---------------------------------------------------- */
+    /* Color-Scheme Base Property ------------------------- */
+
+    color-scheme: dark;
+
+    --primary: var(--primary-5);
+    --primary-0: var(--green-0);
+    --primary-1: var(--green-1);
+    --primary-2: var(--green-2);
+    --primary-3: var(--green-3);
+    --primary-4: var(--green-4);
+    --primary-5: var(--green-5);
+    --primary-6: var(--green-6);
+    --primary-7: var(--green-7);
+    --primary-8: var(--green-8);
+    --primary-9: var(--green-9);
+
+    --accent: var(--accent-5);
+    --accent-0: var(--blue-0);
+    --accent-1: var(--blue-1);
+    --accent-2: var(--blue-2);
+    --accent-3: var(--blue-3);
+    --accent-4: var(--blue-4);
+    --accent-5: var(--blue-5);
+    --accent-6: var(--blue-6);
+    --accent-7: var(--blue-7);
+    --accent-8: var(--blue-8);
+    --accent-9: var(--blue-9);
+
+    /* ---------------------------------------------------- */
+    /* Colors In Use -------------------------------------- */
+
+    --body-bg: var(--dark-9);
+
+    /* ---------------------------------------------------- */
+    /* Specific Adjustments ------------------------------- */
+
+    .Home .Background {
+        opacity: 0.4;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */

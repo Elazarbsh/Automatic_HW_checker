@@ -1,0 +1,199 @@
+/* ------------------------------------------------------------------------------------------------ */
+/* ---- SCSS Variables ---------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------- */
+/* Spacings ----------------------------------------------- */
+
+$size-2xs: var(--size-2xs);
+$size-xs: var(--size-xs);
+$size-sm: var(--size-sm);
+$size-md: var(--size-md);
+$size-lg: var(--size-lg);
+$size-xl: var(--size-xl);
+$size-2xl: var(--size-2xl);
+$size-3xl: var(--size-3xl);
+$size-fluid-sm: var(--size-fluid-sm);
+$size-fluid-md: var(--size-fluid-md);
+$size-fluid-lg: var(--size-fluid-lg);
+$size-fluid-xl: var(--size-fluid-xl);
+$size-fluid-2xl: var(--size-fluid-2xl);
+
+/* -------------------------------------------------------- */
+/* Break-Points ------------------------------------------- */
+
+$screenSize-xs: var(--screen-xs);
+$screenSize-sm: var(--screen-sm);
+$screenSize-md: var(--screen-md);
+$screenSize-lg: var(--screen-lg);
+$screenSize-xl: var(--screen-xl);
+$screenSize-2xl: var(--screen-2xl);
+
+/* -------------------------------------------------------- */
+/* Typography --------------------------------------------- */
+
+$fontFamily-title: var(--ff-title);
+$fontFamily-body: var(--ff-body);
+$fontFamily-extra: var(--ff-extra);
+$fontFamily-code: var(--ff-code);
+
+$fontSize-xs: var(--fs-xs);
+$fontSize-sm: var(--fs-sm);
+$fontSize-md: var(--fs-md);
+$fontSize-lg: var(--fs-lg);
+$fontSize-xl: var(--fs-xl);
+$fontSize-2xl: var(--fs-2xl);
+$fontSize-3xl: var(--fs-3xl);
+$fontSize-4xl: var(--fs-4xl);
+$fontSize-fluid-sm: var(--fs-fluid-sm);
+$fontSize-fluid-md: var(--fs-fluid-md);
+$fontSize-fluid-lg: var(--fs-fluid-lg);
+$fontSize-fluid-xl: var(--fs-fluid-xl);
+$fontSize-fluid-2xl: var(--fs-fluid-2xl);
+$fontSize-default: var(--fs-default);
+
+$fontWeight-light: var(--fw-light);
+$fontWeight-normal: var(--fw-normal);
+$fontWeight-bold: var(--fw-bold);
+$fontWeight-black: var(--fw-black);
+
+/* -------------------------------------------------------- */
+/* Border-Radius ------------------------------------------ */
+
+$radius-xs: var(--radius-xs);
+$radius-sm: var(--radius-sm);
+$radius-md: var(--radius-md);
+$radius-lg: var(--radius-lg);
+$radius-xl: var(--radius-xl);
+$radius-round: var(--radius-round);
+$radius-ellipse: var(--radius-ellipse);
+$radius-default: var(--radius-default);
+
+/* -------------------------------------------------------- */
+/* Animations & Transitions ------------------------------- */
+
+$animation-function-ease: var(--a-fn-ease);
+$animation-function-ease-io: var(--a-fn-ease-io);
+$animation-function-spring: var(--a-fn-spring);
+$animation-function-back: var(--a-fn-back);
+$animation-function-default: var(--a-fn-default);
+$animation-speed-0: var(--a-speed-0);
+$animation-speed-1: var(--a-speed-1);
+$animation-speed-2: var(--a-speed-2);
+$animation-speed-3: var(--a-speed-3);
+$animation-speed-default: var(--a-speed-default);
+
+/* -------------------------------------------------------- */
+/* Colors ------------------------------------------------- */
+
+$color-white: var(--white);
+$color-black: var(--black);
+
+$color-dark-0: var(--dark-0);
+$color-dark-1: var(--dark-1);
+$color-dark-2: var(--dark-2);
+$color-dark-3: var(--dark-3);
+$color-dark-4: var(--dark-4);
+$color-dark-5: var(--dark-5);
+$color-dark-6: var(--dark-6);
+$color-dark-7: var(--dark-7);
+$color-dark-8: var(--dark-8);
+$color-dark-9: var(--dark-9);
+
+$color-gray-0: var(--gray-0);
+$color-gray-1: var(--gray-1);
+$color-gray-2: var(--gray-2);
+$color-gray-3: var(--gray-3);
+$color-gray-4: var(--gray-4);
+$color-gray-5: var(--gray-5);
+$color-gray-6: var(--gray-6);
+$color-gray-7: var(--gray-7);
+$color-gray-8: var(--gray-8);
+$color-gray-9: var(--gray-9);
+
+$color-primary: var(--primary);
+$color-primary-0: var(--primary-0);
+$color-primary-1: var(--primary-1);
+$color-primary-2: var(--primary-2);
+$color-primary-3: var(--primary-3);
+$color-primary-4: var(--primary-4);
+$color-primary-5: var(--primary-5);
+$color-primary-6: var(--primary-6);
+$color-primary-7: var(--primary-7);
+$color-primary-8: var(--primary-8);
+$color-primary-9: var(--primary-9);
+
+$color-accent: var(--accent);
+$color-accent-0: var(--accent-0);
+$color-accent-1: var(--accent-1);
+$color-accent-2: var(--accent-2);
+$color-accent-3: var(--accent-3);
+$color-accent-4: var(--accent-4);
+$color-accent-5: var(--accent-5);
+$color-accent-6: var(--accent-6);
+$color-accent-7: var(--accent-7);
+$color-accent-8: var(--accent-8);
+$color-accent-9: var(--accent-9);
+
+$color-secondary: var(--secondary);
+$color-secondary-0: var(--secondary-0);
+$color-secondary-1: var(--secondary-1);
+$color-secondary-2: var(--secondary-2);
+$color-secondary-3: var(--secondary-3);
+$color-secondary-4: var(--secondary-4);
+$color-secondary-5: var(--secondary-5);
+$color-secondary-6: var(--secondary-6);
+$color-secondary-7: var(--secondary-7);
+$color-secondary-8: var(--secondary-8);
+$color-secondary-9: var(--secondary-9);
+
+/* Components Colors */
+
+$body-bg-color: var(--body-bg);
+
+/* -------------------------------------------------------- */
+/* Box-Shadows -------------------------------------------- */
+
+/* Shadows */
+$elevated-1: var(--elevated-1);
+$elevated-2: var(--elevated-2);
+$elevated-3: var(--elevated-3);
+$elevated-4: var(--elevated-4);
+$elevated-5: var(--elevated-5);
+
+/* Glows */
+$glow-primary-sm: var(--glow-prm-sm);
+$glow-primary-lg: var(--glow-prm-lg);
+$glow-secondary-sm: var(--glow-sec-sm);
+$glow-secondary-lg: var(--glow-sec-lg);
+$glow-accent-sm: var(--glow-acc-sm);
+$glow-accent-lg: var(--glow-acc-lg);
+
+/* -------------------------------------------------------- */
+/* Components Dynamic Values ------------------------------ */
+
+$header-height: var(--header-h);
+
+$button-radius: var(--btn-r);
+$button-padding-block: var(--btn-pbl);
+$button-padding-inline: var(--btn-pin);
+
+$tooltip-radius: var(--tip-r);
+$tooltip-width: var(--tip-w);
+$tooltip-delay: var(--tip-d);
+
+/* -------------------------------------------------------- */
+/* Layers System ------------------------------------------ */
+
+/* Layers `z-index` Values */
+$layer-background: -1;
+$layer-base: auto;
+$layer-0: 0;
+$layer-1: 1;
+$layer-2: 2;
+$layer-3: 3;
+$layer-4: 4;
+$layer-5: 5;
+$layer-foreground: 2147483647;
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
