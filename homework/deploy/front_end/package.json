@@ -2,7 +2,7 @@
     "name": "telhai-hw-checker",
     "private": true,
     "version": "0.0.0",
-    "homepage": "https://natesol.github.io/telhai-hw-checker",
+    "homepage": ".",
     "scripts": {
         "start": "npm run dev",
         "dev": "vite",
