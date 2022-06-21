@@ -1,0 +1,31 @@
+
+Tasks:
+
+1.
+
+- fix the tests view
+- add an option to view error and output files.
+- make sure can remove the zip file
+- fix feature  - edit and download files
+
+
+=============================================
+
+2.
+
+- routes (flask)
+
+=============================================
+3.
+
+- add features  - ignore whitespace etc..
+- option to submit the files through hw_checker web
+
+
+
+
+
+
+
+
+
