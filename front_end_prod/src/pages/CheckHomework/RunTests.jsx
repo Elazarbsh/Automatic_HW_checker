@@ -21,13 +21,15 @@ import { Loader, Section } from '../../components';
 import { formatFileSize } from '../../utilities';
 
 export const RunTests = ({ nextStep }) => {
+    const { files, setFiles, setTestsData } = useContext(FilesContext);
+    const fileNameNoExt = files[0].name.split('.')[0];
+    const path = 'homework/deploy/'+fileNameNoExt+'/TestResults.json'
     // !!!
-    const { data, error, isLoading } = callApi();
+    const { data, error, isLoading } = callApi(path);
     // !!!
 
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
-    const { files, setFiles, setTestsData } = useContext(FilesContext);
     const [seconds, setSeconds] = useState(10);
     const timer = useInterval(() => setSeconds((s) => s - 1), 1000);
     let showed = false;
@@ -103,9 +105,9 @@ export const RunTests = ({ nextStep }) => {
 
 // ---- Helper functions ------------------------
 
-const callApi = () => {
-    const res = useAxiosFetch('../../../api/output1.json');
-
+const callApi = (path) => {
+    console.log("PATH IS " + path)
+    const res = useAxiosFetch(path);
     return res;
 };
 

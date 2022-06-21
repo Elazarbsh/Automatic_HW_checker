@@ -258,6 +258,7 @@ def getOptions(args):
     options["afterExtract"] = not (args.extractMoodle or args.extractStudent)
     return options;
 
+fn = ""
 def main():
     """Parse the arguments. It should contain exactly one argument which is a file name.
     Parse the file name and get the triple (courseId, hwName, ids).
@@ -280,6 +281,11 @@ def main():
         output[EXCEPTION].append(e)
         return False
 
+    #to remove
+    global fn 
+    fn = args.fileName
+    #########
+    
     datadir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data")
     Instructor.loadFromCSV(os.path.join(datadir, "instructors.csv"))
     Course.loadFromCSV(os.path.join(datadir, "courses.csv"))
@@ -306,7 +312,9 @@ def main():
 import json
 if __name__ == "__main__":
     rc = main()
-    export_running_output_to_file()
+    print("PATH IS " + fn)
+    resultsPath = os.path.splitext(fn)[0] + "/TestResults.json"
+    export_running_output_to_file(resultsPath)
     # f_output = open("output.json" , "w")
     # json.dump(output , f_output, indent=4)
     exit(rc)

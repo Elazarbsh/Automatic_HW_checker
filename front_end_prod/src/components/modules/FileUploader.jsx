@@ -1,5 +1,6 @@
 /* ------------------------------------------------------------------------------------------------ */
 /* ---- React Component - FileUploader ------------------------------------------------------------ */
+import axios from 'axios';
 
 import { useState, useContext } from 'react';
 import FilesContext from '../../context/FilesContext';
@@ -31,30 +32,64 @@ export const FileUploader = () => {
             message: 'Your file have been uploaded successfully.',
         });
 
-        console.log(acceptedFiles);
+        console.log(files);
     };
     const handleReject = (rejectedFiles) => {
         showNotification({
             color: 'red',
             title: rejectedFiles[0]?.errors[0]?.code
                 ? rejectedFiles[0].errors[0].code
-                      .split('-')
-                      .map((word) => word[0].toUpperCase() + word.slice(1))
-                      .join(' ')
+                    .split('-')
+                    .map((word) => word[0].toUpperCase() + word.slice(1))
+                    .join(' ')
                 : 'Something went wrong',
             message: rejectedFiles[0]?.errors[0]?.message
                 ? rejectedFiles[0].errors[0].message.includes('File is larger than')
                     ? rejectedFiles[0].errors[0].message
-                          .split(' ')
-                          .map((word) => (+word ? formatFileSize(word) : word))
-                          .join(' ')
+                        .split(' ')
+                        .map((word) => (+word ? formatFileSize(word) : word))
+                        .join(' ')
                     : rejectedFiles[0].errors[0].message
                 : 'Please try again later.',
         });
     };
 
     const checkHomework = () => {
-        navigate('/check-homework');
+        var bodyFormData = new FormData();
+        bodyFormData.append('checkHomework' , "Check Homework");
+        bodyFormData.append('fileName' ,files[0]);
+
+        axios({
+            method: "post",
+            url: 'form.py',
+            data: bodyFormData,
+            headers: { "Content-Type": "multipart/form-data" },
+          })
+            .then(function (response) {
+              //handle success
+              console.log(response);
+              navigate('/check-homework');
+            })
+            .catch(function (response) {
+              //handle error
+              console.log(response);
+            });
+        // const config = {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data'
+        //     },
+        // }
+        
+        // console.log("sending post request")
+        // axios.post('homework/deploy/form.py', {
+        //     fileName :files[0] }, config)
+        //     .then(function (response) {
+        //         console.log(response);
+        //         navigate('/check-homework');
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
     };
 
     return (
@@ -99,10 +134,10 @@ const getStatusColor = (status, theme) => {
     return status.accepted || status.rejected
         ? theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6]
         : status.rejected
-        ? theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6]
-        : theme.colorScheme === 'dark'
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7];
+            ? theme.colors.red[theme.colorScheme === 'dark' ? 4 : 6]
+            : theme.colorScheme === 'dark'
+                ? theme.colors.dark[0]
+                : theme.colors.gray[7];
 };
 
 // ---- Inner components ------------------------

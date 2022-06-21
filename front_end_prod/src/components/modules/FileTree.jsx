@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, Group, Title, Box, Text, useMantineTheme } from '@mantine/core';
 import { Dropzone, IMAGE_MIME_TYPE } from '@mantine/dropzone';
 
-import { Upload, Photo, X, Icon as TablerIcon, FileText } from 'tabler-icons-react';
+import { Upload, Photo, X, Icons as TablerIcon, FileText } from 'tabler-icons-react';
 
 import {} from '../index';
 

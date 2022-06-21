@@ -31,6 +31,7 @@ class Test:
         self._inputFileName = os.path.join(self.directory, self._inputBaseName)
         self._correctOutputFileName = os.path.join(self.directory, self._correctOutputBaseName)
         self._correctErrorFileName = os.path.join(self.directory, self._correctErrorBaseName)
+
         self._scriptFileName = os.path.join(self.directory, "run" + self.name)
         if (not os.path.isfile(self._correctOutputFileName)):
             self._correctOutputFileName = ""

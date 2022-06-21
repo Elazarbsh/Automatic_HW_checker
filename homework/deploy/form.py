@@ -10,8 +10,16 @@ import sys
 cgitb.enable() 
 print("Content-Type:text/html;charset=utf-8")
 print()
+print("this is running");
+
 form = cgi.FieldStorage()
 fileItem = form['fileName']
+# print("file is " + fileItem.filename);
+# print("check is " + form['checkHomework']);
+
+# print("form val is " + form.getvalue('checkHomework').filename);
+
+
 if fileItem.filename:
     if (os.path.isabs(fileItem.filename)):
         print('<br>Absolute file names not allowed<br>')

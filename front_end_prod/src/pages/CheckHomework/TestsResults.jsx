@@ -140,12 +140,18 @@ const createAccordionItem = (key, test) => {
     const [view, setView] = useState('summary');
 
     const testNumber = key;
+    console.log("TEST IS " + key);
+    const { files, setFiles, setTestsData } = useContext(FilesContext);
+    const fileNameNoExt = files[0].name.split('.')[0];
+    const n = useAxiosFetch('homework/deploy/'+fileNameNoExt+'/myOutput'+key+'.txt');
+    const o = useAxiosFetch('homework/deploy/'+fileNameNoExt+'/output'+key);
+
     const failed = test.result.toLowerCase().includes('failed');
     const result = test.result;
     const grade = test.grade;
     const output = {
-        current: JSON.stringify(newJSON, undefined, 4),
-        excepted: JSON.stringify(oldJSON, undefined, 4),
+        current: n.data.toString(),
+        excepted: o.data.toString(),
     };
 
     return (

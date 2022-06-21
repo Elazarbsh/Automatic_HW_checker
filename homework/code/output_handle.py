@@ -38,9 +38,9 @@ class TestObject:
 tests_obj  = {}
 compile_obj = CompileObject() 
 
-def export_running_output_to_file():
+def export_running_output_to_file(path):
     output[COMPILE] = compile_obj
     output[TEST] = tests_obj
-    f_output = open("output.json" , "w")
+    f_output = open(path , "w")
     json.dump(output , f_output, indent=4, default=vars)
     #json.dump(output, output.json)

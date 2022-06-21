@@ -31,6 +31,8 @@ COPY horovitzmic /var/www/html/horovitzmic
 
 COPY homework/deploy/assets /var/www/html/assets
 
+COPY homework/deploy/front_end/api /var/www/html/deploy/api
+
 COPY homework/deploy/hwcheck /usr/bin
 
 RUN chmod -R 777 /var/www/html
