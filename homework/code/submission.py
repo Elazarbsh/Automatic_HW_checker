@@ -62,21 +62,22 @@ class Submission:
             self.grade -= assignment.PenaltyForStructure
         if assignment.DisplayGrades:
             print ("Grade for correct format and compilation:", self.grade)
-            output[SUMMARY].append("Grade for correct format and compilation:"+ str(self.grade))
+            header_summary_obj.grade_log += ("Grade for correct format and compilation:"+ str(self.grade) + '\n')
         self.grade += self.testGrade
         if assignment.DisplayGrades:
             print ("OVERALL GRADE:", self.grade)
             print ("This grade DOES NOT ACCURATELY REFLECT the merit of the work which is affected by ADDITIONAL FACTORS such as:")
             print ("code design, algorithmic efficiency, adequacy of solution, code style, plagiarism, etc...")
-            output[SUMMARY].append ("OVERALL GRADE:"+ str(self.grade))
-            output[SUMMARY].append ("This grade DOES NOT ACCURATELY REFLECT the merit of the work which is affected by ADDITIONAL FACTORS such as:")
-            output[SUMMARY].append ("code design, algorithmic efficiency, adequacy of solution, code style, plagiarism, etc...")
-            
+            header_summary_obj.grade = self.grade
+            header_summary_obj.grade_log += ("OVERALL GRADE:"+ str(self.grade) +'\n')
+            header_summary_obj.grade_log += ("This grade DOES NOT ACCURATELY REFLECT the merit of the work which is affected by ADDITIONAL FACTORS such as:\n")
+            header_summary_obj.grade_log += ("code design, algorithmic efficiency, adequacy of solution, code style, plagiarism, etc...")
+
     def checkStructure(self):
         """Structure is OK only if every file is of an allowed type and subdirectories exist
         only if they are allowed"""
         print("Checking content of ", self._dir)
-        output[HEADER].append("Checking content of "+ self._dir)
+        header_obj.log += ("Checking content of "+ self._dir)
         self.cd()
         self.structureResult = ""
 
@@ -109,7 +110,7 @@ class Submission:
             self.structureResult += "Ignored files: " + str(badFiles) + " (bad extension)"
         if self.structureResult != "":
             printErr(self.structureResult)
-            output[WARNING].append(self.structureResult)
+            header_summary_obj.warnings += (self.structureResult + '\n')
         return
 
     def copyTestFiles(self):
@@ -146,13 +147,13 @@ class Submission:
 
     def compile(self):
         print("Compiling...")
-        output[COMPILE].append("Compiling...")
+        compile_obj.log += ("Compiling...")
         self.cd()
         self.compilationResult, self.compilationError, self.compilationWarning = self._assignment.compile()
 
     def test(self):
         print("Testing...")
-        output[COMPILE].append("Testing...")
+        compile_obj.log += ("Testing...")
         self.cd()
         self.testResults, self.testGrade = self._assignment.runTests()
 

@@ -1,11 +1,9 @@
 /* ------------------------------------------------------------------------------------------------ */
-/* ---- React Page Components - Barrel File ------------------------------------------------------- */
+/* ---- Global Utilities - Constants, Functions & Logic - Barrel File ----------------------------- */
 
-export * from './Home';
+export * from './mantineCustomTheme';
 
-export * from './CheckHomework';
-export * from './CheckHomework/RunTests';
-export * from './CheckHomework/TestsResults';
+export * from './functions';
 
 /* ------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------ */

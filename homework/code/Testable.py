@@ -51,7 +51,7 @@ class Testable (Assignment):
         for file in [dirEntry for dirEntry in os.listdir(".") if os.path.isfile(dirEntry)]:
             if file.rpartition(".")[-1] in self.compilable:
                 errorFileName = file+".errors.txt"
-                compile_obj.error_file = errorFileName
+                compile_obj.errors_file = errorFileName
                 print ("Compiling " + file)
                 compile_obj.log += "Compiling " + file + "\n"
                 with open(os.devnull, 'w') as nullFile:
@@ -72,5 +72,5 @@ class Testable (Assignment):
             result = ""
         if result != "":
             printErr(result)
-            compile_obj.error += result + "\n"
+            compile_obj.errors += result + "\n"
         return result, error, warning

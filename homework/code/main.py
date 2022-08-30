@@ -69,18 +69,18 @@ def getCourse(id):
         if course.active:
             print(course)
             print(type(course))
-            output[HEADER].append(str(course))
+            header_obj.course = (str(course))
             return course
     except KeyError:
         pass
     printErr("Course not found or not active: ", id)
     printErr("")
     printErr("Available Courses")
-    compile_obj.error += "Course not found or not active: " + str(id) + "\n"
-    compile_obj.error += "Available Courses" + "\n"
+    compile_obj.errors += "Course not found or not active: " + str(id) + "\n"
+    compile_obj.errors += "Available Courses" + "\n"
     for course in Course.byId.values():
         printErr(course)
-        compile_obj.error += str(course) + "\n"
+        compile_obj.errors += str(course) + "\n"
 
     return None
 
@@ -91,20 +91,20 @@ def getAssignment(course, assignmentName):
         printErr("Assignment not found: ", assignmentName)
         printErr()
         printErr("List of Assignments")
-        compile_obj.error += "Assignment not found: " + assignmentName + "\n"
-        compile_obj.error += "List of Assignments" + "\n"
+        compile_obj.errors += "Assignment not found: " + assignmentName + "\n"
+        compile_obj.errors += "List of Assignments" + "\n"
         for assignment in course.getAssignments():
             printErr(assignment)
-            compile_obj.error += assignment + "\n"
+            compile_obj.errors += assignment + "\n"
 
         return None
     else:
         assignment = l[0]
         print(assignment)
-        output[HEADER].append(str(assignment))
+        header_obj.assignment = (str(assignment))
         if (assignment.deadline < datetime.datetime.today()):
             printErr ("Warning: Deadline is due !!")
-            output[WARNING].append( "Warning: Deadline is due !!" )
+            header_summary_obj.warnings +=  ( "Warning: Deadline is due !!\n" )
         assignment.loadProperties()
         assignment.loadTests()
         return assignment
@@ -118,8 +118,8 @@ def studentMain(assignment, fileName, ids):
     if os.path.exists(dirName):
         printErr("Directory", dirName, "exists. Aborting..")
         printErr("Please CLEAR RESULTS DIRECTORY for a second check")
-        compile_obj.error += "Directory " + dirName + " exists. Aborting.." + "\n"
-        compile_obj.error += "Please CLEAR RESULTS DIRECTORY for a second check" + "\n"
+        compile_obj.errors += "Directory " + dirName + " exists. Aborting.." + "\n"
+        compile_obj.errors += "Please CLEAR RESULTS DIRECTORY for a second check" + "\n"
 
         return False
     try:
@@ -129,7 +129,7 @@ def studentMain(assignment, fileName, ids):
     except Exception as err:
         errStr = "bad submission file:" + fileName + err.__str__()
         printErr(errStr)
-        output[EXCEPTION].append(errStr)
+        compile_obj.exceptions += (errStr + ' \n')
 
 def handleSubmissionFile (file, assignment, afterExtract):
     try:
@@ -169,7 +169,7 @@ def renameSubmissionFile(file):
     if not match:
         errStr = "Bad moodle file name:" + file + " ignored."
         printErr(errStr)
-        output[EXCEPTION].append(errStr)
+        compile_obj.exceptions += (errStr + ' \n')
         os.remove(file)
     else:
         try:
@@ -179,22 +179,23 @@ def renameSubmissionFile(file):
             os.remove(file)
             printErr(e)
             printErr("Ignoring duplicate Submission File:", newName)
-            output[EXCEPTION].append(e + ", Ignoring duplicate Submission File:" + newName) 
+            compile_obj.exceptions += (e + ", Ignoring duplicate Submission File:" + newName + ' \n')
 
 def extractFromSubmissionDirectory(dirName):
     for root, dirs, files in os.walk(dirName):
         if len(dirs) > 0 or len(files) != 1:
             errStr = "Moodle directory should contain exactly one file:" + dirName
             printErr(errStr)
-            output[EXCEPTION].append(errStr) 
+            compile_obj.exceptions += (errStr + ' \n')
             return
+
         try:
             shutil.move(os.path.join(dirName, files[0]), ".")
         except Exception as e:
             os.remove(os.path.join(dirName, files[0]))
             printErr(e)
             printErr("Ignoring duplicate Submission File:", files[0])
-            output[EXCEPTION].append(e + ", Ignoring duplicate Submission File:" + files[0]) 
+            compile_obj.exceptions += (e + ", Ignoring duplicate Submission File:" + files[0] +  ' \n')
         os.rmdir(dirName)
 
 def extractFromMoodle(fileName):
@@ -210,7 +211,7 @@ def extractFromMoodle(fileName):
         if len(dirs) > 0:
             printErr("Make the checking in an empty folder (without subdirectories), you have:")
             printErr(dirs)
-            output[EXCEPTION].append("Make the checking in an empty folder (without subdirectories), you have: " + dirs)
+            compile_obj.exceptions += ("Make the checking in an empty folder (without subdirectories), you have: " + dirs + ' \n')
             return False
     extractZipFile(fileName, "submissions")
     os.chdir("submissions")
@@ -278,7 +279,7 @@ def main():
         (courseId, hwName, ids) = parseFileName(args.fileName)
     except Exception as e:
         printErr(e)
-        output[EXCEPTION].append(e)
+        compile_obj.exceptions += (e + ' \n')
         return False
 
     #to remove
@@ -312,6 +313,7 @@ def main():
 import json
 if __name__ == "__main__":
     rc = main()
+    print("ssssssssssssssss" )
     print("PATH IS " + fn)
     resultsPath = os.path.splitext(fn)[0] + "/TestResults.json"
     export_running_output_to_file(resultsPath)

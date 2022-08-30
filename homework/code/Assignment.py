@@ -47,7 +47,7 @@ class Assignment:
         for id in ids:
             self.gradesWriter.writerow([id, 0, '"' + errStr + '"'])
         printErr(errStr)
-        compile_obj.error += errStr + "\n"
+        compile_obj.errors += errStr + "\n"
 
     def __str__(self):
         return self.shortName + ", " + self.name + ", Deadline:" + str(self.deadline)

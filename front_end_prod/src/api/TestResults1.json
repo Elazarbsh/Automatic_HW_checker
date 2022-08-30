@@ -1,0 +1,201 @@
+{
+    "header": {
+        "course": "Principles of Programming Languages, 2021-22, Fall, Shlomo Hoory",
+        "assignment" : "Hw2, Homework 2, Deadline:2021-12-14 23:55:00",
+        "summary": {
+            "grade": "85/100",
+            "warnings": [
+                "Warning: Deadline is due !!"
+            ]
+        }
+    },
+    "compilation": {
+        "errors": "Directory 36_Hw2_312238629 exists. Aborting..\nPlease CLEAR RESULTS DIRECTORY for a second check\n",
+        "errors_file": "",
+        "link_errors_file": "",
+        "log": "",
+        "exceptions": ""
+    },
+    "tests": {
+        "Invalid1": {
+            "name": "Invalid1",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid1",
+            "output_file": "myOutputInvalid1.txt",
+            "error_file": "myErrorInvalid1.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid2": {
+            "name": "Invalid2",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid2",
+            "output_file": "myOutputInvalid2.txt",
+            "error_file": "myErrorInvalid2.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid3": {
+            "name": "Invalid3",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid3",
+            "output_file": "myOutputInvalid3.txt",
+            "error_file": "myErrorInvalid3.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid4": {
+            "name": "Invalid4",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid4",
+            "output_file": "myOutputInvalid4.txt",
+            "error_file": "myErrorInvalid4.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid5": {
+            "name": "Invalid5",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid5",
+            "output_file": "myOutputInvalid5.txt",
+            "error_file": "myErrorInvalid5.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid6": {
+            "name": "Invalid6",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid6",
+            "output_file": "myOutputInvalid6.txt",
+            "error_file": "myErrorInvalid6.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid7": {
+            "name": "Invalid7",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid7",
+            "output_file": "myOutputInvalid7.txt",
+            "error_file": "myErrorInvalid7.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid8": {
+            "name": "Invalid8",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid8",
+            "output_file": "myOutputInvalid8.txt",
+            "error_file": "myErrorInvalid8.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Invalid9": {
+            "name": "Invalid9",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputInvalid9",
+            "output_file": "myOutputInvalid9.txt",
+            "error_file": "myErrorInvalid9.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Valid1": {
+            "name": "Valid1",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputValid1",
+            "output_file": "myOutputValid1.txt",
+            "error_file": "myErrorValid1.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Valid2": {
+            "name": "Valid2",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputValid2",
+            "output_file": "myOutputValid2.txt",
+            "error_file": "myErrorValid2.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Valid3": {
+            "name": "Valid3",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputValid3",
+            "output_file": "myOutputValid3.txt",
+            "error_file": "myErrorValid3.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Valid4": {
+            "name": "Valid4",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputValid4",
+            "output_file": "myOutputValid4.txt",
+            "error_file": "myErrorValid4.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Valid5": {
+            "name": "Valid5",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputValid5",
+            "output_file": "myOutputValid5.txt",
+            "error_file": "myErrorValid5.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        },
+        "Valid6": {
+            "name": "Valid6",
+            "grade": "",
+            "warning": "",
+            "input_file": "/var/www/html/hoorys/homework/36/Hw2/inputValid6",
+            "output_file": "myOutputValid6.txt",
+            "error_file": "myErrorValid6.txt",
+            "diff_file": "",
+            "log": "",
+            "result": "",
+            "error": ""
+        }
+    }
+}

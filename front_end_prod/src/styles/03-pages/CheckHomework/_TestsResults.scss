@@ -19,6 +19,19 @@
         }
     }
 
+    .compilation-failed-content {
+        padding: $size-xl !important;
+        border: 3px solid;
+        border-radius: $radius-lg;
+
+        @include on-theme(light) {
+            border-color: $color-gray-1;
+        }
+        @include on-theme(dark) {
+            border-color: $color-dark-6;
+        }
+    }
+
     .results-accordion {
         .mantine-Accordion-item {
             border-bottom: 0;

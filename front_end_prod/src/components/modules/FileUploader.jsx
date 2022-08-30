@@ -15,7 +15,7 @@ import { FileIcon, defaultStyles } from 'react-file-icon';
 
 import { Tooltip } from '..';
 
-import { formatFileSize } from '../../utilities';
+import { formatFileSize } from '../../utils';
 
 export const FileUploader = () => {
     const MB = 1024 ** 2;
@@ -31,7 +31,6 @@ export const FileUploader = () => {
             title: 'File Uploaded',
             message: 'Your file have been uploaded successfully.',
         });
-
         console.log(files);
     };
     const handleReject = (rejectedFiles) => {
@@ -55,41 +54,32 @@ export const FileUploader = () => {
     };
 
     const checkHomework = () => {
-        var bodyFormData = new FormData();
-        bodyFormData.append('checkHomework' , "Check Homework");
-        bodyFormData.append('fileName' ,files[0]);
+        // !!!@@ yair changes delete V when have a server
+        // navigate('/check-homework');
+        // return;
+        // !!!@@ yair changes delete ^ when have a server
+        
+
+        const bodyFormData = new FormData();
+        bodyFormData.append('checkHomework', "Check Homework");
+        bodyFormData.append('fileName', files[0]);
 
         axios({
             method: "post",
             url: 'form.py',
             data: bodyFormData,
             headers: { "Content-Type": "multipart/form-data" },
-          })
-            .then(function (response) {
-              //handle success
-              console.log(response);
-              navigate('/check-homework');
-            })
-            .catch(function (response) {
-              //handle error
-              console.log(response);
-            });
-        // const config = {
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data'
-        //     },
-        // }
-        
-        // console.log("sending post request")
-        // axios.post('homework/deploy/form.py', {
-        //     fileName :files[0] }, config)
-        //     .then(function (response) {
-        //         console.log(response);
-        //         navigate('/check-homework');
-        //     })
-        //     .catch(function (error) {
-        //         console.log(error);
-        //     });
+        })
+        .then( (response) => {
+            //handle success
+            console.log(response);
+            navigate('/check-homework');
+        })
+        .catch( (response) => {
+            //handle error
+            console.log(response);
+            navigate('/');
+        });
     };
 
     return (

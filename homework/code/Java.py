@@ -22,11 +22,11 @@ class Java (Testable):
         error = False
         warning = False
 
-        sourceFiles = "";
+        sourceFiles = ""
         for (dirName, dirNames, fileNames) in os.walk("."):
             for fileName in fileNames:
                 if os.path.splitext(fileName)[1] == ".java":
-                    sourceFiles += " ";
+                    sourceFiles += " "
                     sourceFiles += os.path.join(dirName, fileName)
         with open(os.devnull, 'w') as nullFile:
             with open("compileerr.txt", 'w') as errFile:
@@ -36,10 +36,10 @@ class Java (Testable):
                     warning = True
         if error:
             result = "Compilation Error(s)"
-            compile_obj.error += result + "\n"
+            compile_obj.errors += result + "\n"
         elif warning:
             result = "Compilation Warning(s)"
-            output[WARNING].append(result)
+            header_summary_obj.warnings += result
         else:
             result = ""
         if result != "":

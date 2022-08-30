@@ -31,7 +31,7 @@ class Test:
         self._inputFileName = os.path.join(self.directory, self._inputBaseName)
         self._correctOutputFileName = os.path.join(self.directory, self._correctOutputBaseName)
         self._correctErrorFileName = os.path.join(self.directory, self._correctErrorBaseName)
-
+        print("_correctOutputFileName = ", self._correctOutputFileName)
         self._scriptFileName = os.path.join(self.directory, "run" + self.name)
         if (not os.path.isfile(self._correctOutputFileName)):
             self._correctOutputFileName = ""
@@ -41,7 +41,22 @@ class Test:
             self._scriptFileName = ""
         self._outputFileName = "myOutput" + self.name + ".txt"
         self._errorFileName = "myError" + self.name + ".txt"
-        tests_obj[self.name] = TestObject(name=self.name, input_file=self._inputFileName, output_file=self._outputFileName, error_file=self._errorFileName)
+        tests_obj[self.name] = TestObject(name=self.name, input_file=self._inputFileName, user_output=self._outputFileName, error_file=self._errorFileName)
+    #     # tests_obj[self.name] = TestObject(  name=self.name,
+    #     #                                     correct_output=self.file_to_string(self._correctOutputFileName),
+    #     #                                     output_file=self.file_to_string(self._outputFileName),
+    #     #                                     error_file=self.file_to_string(self._errorFileName)
+    #     #                                 )
+
+
+    # def file_to_string(self, path):
+    #     print(path)
+    #     try:
+    #         with open(path, 'r') as file:
+    #             return file.read()
+    #     except Exception as e:
+    #         print(e)
+    #         return ""
 
     def _initConfigurableProperties(self):
         self.Args = []

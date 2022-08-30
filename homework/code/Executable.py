@@ -15,7 +15,7 @@ class Executable (Testable):
         print("Linking...")
         errorFileName="linkageerrors.txt"
         compile_obj.log += "Linking..." + "\n"
-        compile_obj.link_error_file += "linkageerrors.txt" + "\n"
+        compile_obj.link_errors_file += "linkageerrors.txt" + "\n"
         with open(errorFileName, 'w') as errFile:
             if subprocess.call(self.linkCommand, shell=True, stderr=errFile) == 0:
                 os.remove(errorFileName)

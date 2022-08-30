@@ -5,7 +5,6 @@ import subprocess
 import sys
 import os
 import shutil
-import sys
 
 cgitb.enable() 
 print("Content-Type:text/html;charset=utf-8")

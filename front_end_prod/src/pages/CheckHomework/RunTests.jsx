@@ -1,12 +1,12 @@
 /* ------------------------------------------------------------------------------------------------ */
 /* ---- React Page Component - Run Tests ---------------------------------------------------------- */
 
-import { useContext, useEffect, useState, useMemo, useCallback } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import FilesContext from '../../context/FilesContext';
 
 import { useNavigate, Link } from 'react-router-dom';
 
-import { useMantineTheme, Group, Anchor, Text, Button } from '@mantine/core';
+import { useMantineTheme, Anchor, Text } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
 import { useInterval } from '@mantine/hooks';
 
@@ -18,50 +18,61 @@ import useAxiosFetch from '../../hooks/useAxiosFetch';
 
 import { Loader, Section } from '../../components';
 
-import { formatFileSize } from '../../utilities';
+import { formatFileSize } from '../../utils';
+
 
 export const RunTests = ({ nextStep }) => {
-    const { files, setFiles, setTestsData } = useContext(FilesContext);
-    const fileNameNoExt = files[0].name.split('.')[0];
-    const path = 'homework/deploy/'+fileNameNoExt+'/TestResults.json'
-    // !!!
-    const { data, error, isLoading } = callApi(path);
-    // !!!
+    // 
+    const timerInitialValue = 5;
+    let showedNotification = false;
 
+    // 
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
-    const [seconds, setSeconds] = useState(10);
-    const timer = useInterval(() => setSeconds((s) => s - 1), 1000);
-    let showed = false;
+    const { files, setFiles, setTestsData } = useContext(FilesContext);
+    
+    // 
+    const fileNameNoExt = files[0].name.split('.')[0];
+    const path = `homework/deploy/${fileNameNoExt}/TestResults.json`;
+    const { data, error, isLoading } = callApi(path);
 
-    const movePage = () => {
+    // !!!@@ yair changes delete   V when have a server
+    // const { data, error, isLoading } = callApi('src/api/TestResults.json');
+    // !!!@@ yair changes delete ^ when have a server
+    // 
+
+    const [loadingSpinner, setLoadingSpinner] = useState(true);
+    const [timerSeconds, setTimerSeconds] = useState(timerInitialValue);
+    const timer = useInterval(() => setTimerSeconds((s) => s - 1), 1000);
+
+    const navigateToTestsResults = () => {
         timer.stop();
         setTestsData(data);
         nextStep();
     };
 
-    const goBack = () => {
+    const goBackToHome = () => {
         timer.stop();
         setFiles([]);
+        navigate('/');
     };
 
     useEffect(() => {
         if (files.length === 0) {
             navigate('/');
         }
-    });
+    }, [files]);
 
     useEffect(() => {
-        if (files.length > 0 && !isLoading && loading) {
+        if (!isLoading && loadingSpinner) {
             setTimeout(() => {
-                setLoading(false);
+                setLoadingSpinner(false);
             }, Math.random() * 1000 + 1000);
         }
         return timer.stop;
     }, [isLoading]);
 
     useEffect(() => {
-        if (!loading && error && !showed) {
+        if (!loadingSpinner && error && !showedNotification) {
             showNotification({
                 title: 'Something went wrong',
                 message:
@@ -69,35 +80,35 @@ export const RunTests = ({ nextStep }) => {
                 color: 'red',
                 autoClose: 5000,
             });
-            showed = true;
+            showedNotification = true;
         }
-    }, [loading]);
+    }, [loadingSpinner]);
 
     useEffect(() => {
-        if (!error && !loading && !timer.active) {
+        if (!error && !loadingSpinner && !timer.active) {
             timer.start();
         }
-    }, [loading, timer]);
+    }, [loadingSpinner, timer]);
 
     useEffect(() => {
-        if (seconds <= 0) {
+        if (timerSeconds <= 0) {
             timer.stop();
             setTimeout(() => {
-                movePage();
+                navigateToTestsResults();
             }, 500);
         }
-    }, [seconds]);
+    }, [timerSeconds]);
 
     return (
         <div className='RunTests'>
             {files.length <= 0 ? (
-                <NoFiles goBack={goBack} />
-            ) : loading ? (
+                <NoFiles goBack={goBackToHome} />
+            ) : loadingSpinner ? (
                 <LoadingData files={files} />
             ) : error ? (
-                <ErrorAccrued files={files} goBack={goBack} />
+                <ErrorAccrued files={files} goBack={goBackToHome} />
             ) : (
-                <TestFinishedSuccessfully files={files} movePage={movePage} seconds={seconds} />
+                <TestFinishedSuccessfully files={files} movePage={navigateToTestsResults} seconds={timerSeconds} />
             )}
         </div>
     );
