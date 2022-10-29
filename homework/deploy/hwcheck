@@ -1,5 +1,9 @@
 #!/bin/csh
-# set dir=~cmshalom/Python/Homeworks
-# setenv CLASSPATH ".:$dir/lib/*"
-# setenv CLASSPATHJP ".:$dir/lib/jplag/*"
-python3 ../code/main.py $*
+#set dir=~cmshalom/Python/Homeworks
+# setenv CLASSPATH ".:../lib/*"
+# setenv CLASSPATHJP ".:../lib/jplag/*"
+# echo $*
+# echo "hi\n"
+# pwd
+python3 -V
+python3 /var/www/html/homework/code/main.py $*

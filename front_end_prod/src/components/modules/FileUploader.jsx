@@ -2,6 +2,9 @@
 /* ---- React Component - FileUploader ------------------------------------------------------------ */
 import axios from 'axios';
 
+import { fetchEventSource } from "@microsoft/fetch-event-source";
+
+
 import { useState, useContext } from 'react';
 import FilesContext from '../../context/FilesContext';
 import { useNavigate } from 'react-router-dom';
@@ -23,6 +26,7 @@ export const FileUploader = () => {
     const navigate = useNavigate();
     const theme = useMantineTheme();
     const { files, setFiles } = useContext(FilesContext);
+    let [contentFromServer, setContentFromServer] = useState("");
 
     const handleDrop = (acceptedFiles) => {
         setFiles(acceptedFiles);
@@ -53,38 +57,84 @@ export const FileUploader = () => {
         });
     };
 
-    const checkHomework = () => {
-        // !!!@@ yair changes delete V when have a server
-        // navigate('/check-homework');
-        // return;
-        // !!!@@ yair changes delete ^ when have a server
-        
+    const HtmlBox = () => {
+        const sty = {
+            border: "2px solid #eee",
+            height: "270px",
+            width: "100%",
+            overflow: "auto",
+            padding: "10px",
+            whiteSpace: "pre-wrap"
+        };
+
+        return (
+            <div className="row">
+                <h3>Test Render</h3>
+                <div style={sty} className="msg-wrapper">
+                    <Text>{contentFromServer}</Text>
+                </div>
+            </div>
+        );
+    }
+
+
+    const checkHomework = async () => {
 
         const bodyFormData = new FormData();
         bodyFormData.append('checkHomework', "Check Homework");
         bodyFormData.append('fileName', files[0]);
 
-        axios({
-            method: "post",
-            url: 'form.py',
-            data: bodyFormData,
-            headers: { "Content-Type": "multipart/form-data" },
-        })
-        .then( (response) => {
-            //handle success
-            console.log(response);
-            navigate('/check-homework');
-        })
-        .catch( (response) => {
-            //handle error
-            console.log(response);
-            navigate('/');
+        const currentUrl = window.location.href;
+        console.log(currentUrl);
+
+        await fetchEventSource('http://localhost:4000', {
+            method: "POST",
+            headers: { Accept: "text/event-stream", },
+            body: bodyFormData,
+            onmessage(event) {
+                var msg = event.data;
+                msg = msg.replace(/#/g, '\n');
+                contentFromServer = contentFromServer + msg;
+                setContentFromServer(contentFromServer);
+                console.log("EVENTDATA: " + msg);
+            },
+            onclose() {
+                console.log("Connection closed by the server");
+                navigate('/check-homework');
+            },
+            onerror(err) {
+                console.log("There was an error from server", err);
+            },
         });
+
+
+
+        // axios({
+        //     method: "post",
+        //     url: 'http://localhost:4000',
+        //     data: bodyFormData,
+        //     headers: { "Content-Type": "multipart/form-data" },
+        // })
+        //     .then((response) => {
+        //         //handle success
+        //         console.log("RESPONSE: " + response);
+        //         console.log("RESPONSE D: " + response.data);
+        //         console.log("RESPONSE D TYPE: " + typeof (response.data));
+        //         // setContentFromServer(response.data)
+
+        //         navigate('/check-homework');
+        //     })
+        //     .catch((response) => {
+        //         //handle error
+        //         console.log(response);
+        //         navigate('/');
+        //     });
     };
 
     return (
         <>
             <Paper className='FileUploader Main-Paper' radius='xl' shadow='lg' p='xl'>
+
                 <Dropzone
                     multiple={false}
                     accept={['.zip', MIME_TYPES.zip]}
@@ -114,6 +164,8 @@ export const FileUploader = () => {
                     </Group>
                 )}
             </Paper>
+            <HtmlBox></HtmlBox>
+
         </>
     );
 };
@@ -165,6 +217,7 @@ const DropzoneInner = (status, theme) => (
         </Group>
     </div>
 );
+
 
 const PreviewFile = ({ file: currentFile, files, setFiles, ...props }) => {
     const theme = useMantineTheme();

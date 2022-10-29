@@ -47,6 +47,7 @@ export const RunTests = ({ nextStep }) => {
     const navigateToTestsResults = () => {
         timer.stop();
         setTestsData(data);
+        console.log("DATA:" + data);
         nextStep();
     };
 

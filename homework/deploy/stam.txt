@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "../code/main.py", line 11, in <module>
+    from submission import *
+  File "/var/www/html/homework/code/submission.py", line 4, in <module>
+    import distutils.dir_util
+ModuleNotFoundError: No module named 'distutils.dir_util'

@@ -42,7 +42,9 @@ export const TestsResults = () => {
     const [files_tree, set_files_tree] = useState('123');
 
     // console.log(files)
-    // console.log(testsData)
+    console.log("TESTDATA:" + JSON.stringify(testsData));
+    console.log("TESTDATA TYPE:" + typeof(testsData));
+
 
 
     async function build_tree() {
@@ -67,7 +69,7 @@ export const TestsResults = () => {
 
         axios({
             method: "post",
-            url: '/homework/deploy/form.py',
+            url: 'http://localhost:4000/clear-results',
             data: bodyFormData,
             headers: { "Content-Type": "multipart/form-data" },
         })

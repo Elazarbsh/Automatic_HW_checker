@@ -17,10 +17,10 @@ id,name,year,semester,instructor,active
 17,Principles of Programming Languages,2019-19,Fall,Mordo Shalom,False
 18,Introduction to Systems Programming,2018-19,Fall,Itai Sharon,False
 19,Programming with C++,2018-19,Spring,Evgenia Wasserman Pritsker,False
-20,Introduction to Computer Science,2023-24,Spring,Donita Cohen,True
+20,Introduction to Computer Science,2018-19,Spring,Donita Cohen,False
 21,Data Structures Lab,2019-20,Fall,Mordo Shalom,False
 22,Principles of Programming Languages,2019-20,Fall,Mordo Shalom,False
-23,Object Oriented Programming with Java,2021-22,Fall,Michal Horovitz,True
+23,Object Oriented Programming with Java,2019-20,Fall,Michal Horovitz,False
 24,Introduction to Computer Science,2019-20,Fall,Dani Kotlar,False
 25,Object Oriented Programming with Java,2019-20,Spring,Ron Sivan,False
 26,Programming with C++,2019-20,Spring,Andrey Berger,False

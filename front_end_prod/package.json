@@ -19,6 +19,7 @@
         "@mantine/modals": "^4.1.5",
         "@mantine/notifications": "^4.1.5",
         "@mantine/prism": "^4.1.5",
+        "@microsoft/fetch-event-source": "^2.0.1",
         "@monaco-editor/react": "^4.4.4",
         "adm-zip": "^0.5.9",
         "axios": "^0.27.1",
@@ -29,6 +30,7 @@
         "react-dom": "^18.0.0",
         "react-file-icon": "^1.1.0",
         "react-router-dom": "^6.3.0",
+        "socket.io-client": "^4.5.3",
         "tabler-icons-react": "^1.46.0"
     },
     "devDependencies": {
