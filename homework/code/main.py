@@ -129,14 +129,14 @@ def studentMain(assignment, fileName, ids):
     except Exception as err:
         errStr = "bad submission file:" + fileName + err.__str__()
         printErr(errStr)
-        compile_obj.exceptions += (errStr + ' \n')
+        # compile_obj.exceptions += (errStr + ' \n')
 
 def handleSubmissionFile (file, assignment, afterExtract):
     try:
         ids=[] ### to cover the case where the next line fails
         (courseId, hwName, ids) = parseFileName(file)
         if not (courseId == assignment.course.id and hwName == assignment.shortName.upper()):
-            assignment.logUnextractable("bad submission file " + file + ": wrong course id or homework name", ids)
+            assignment.logUnextractable("bad submission file" + file + ": wrong course id or homework name", ids)
             return
         dirName = file[:-4]
         extractZipFile(file, dirName)
@@ -313,7 +313,7 @@ def main():
 import json
 if __name__ == "__main__":
     rc = main()
-    print("ssssssssssssssss" )
+    print("ssss" )
     print("PATH IS " + fn)
     resultsPath = os.path.splitext(fn)[0] + "/TestResults.json"
     export_running_output_to_file(resultsPath)

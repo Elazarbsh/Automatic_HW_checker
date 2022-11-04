@@ -21,7 +21,7 @@ app.use(fileupload());
 const { spawn } = require('child_process');
 
 app.get('/', (req, res) => {
-  res.send('Hello World!');
+  res.send('Hello Worldddd!');
   console.log("got a GET request");
 });
 
@@ -32,33 +32,43 @@ app.post('/', async (req, res) => {
     "Cache-Control": "no-cache",
   });
   const file = req.files.fileName;
-  console.log(file.name);
-
+  const dirName = path.basename(file.name, '.zip');
+  console.log(dirName);
   const formPath = "/var/www/html/homework/deploy/form.py";
 
-  file.mv('/var/www/html/homework/deploy/' + file.name, function (err) {
-    fs.chmodSync('/var/www/html/homework/deploy/' + file.name, 0755);
-    const hwcheck = spawn('python3', ['-u', formPath, file.name, "checkHomework"], { cwd: '/var/www/html/homework/deploy/' });
+  if (fs.existsSync('/var/www/html/homework/deploy/' + dirName)) {
+    console.log('file exists');
+    res.end();
+  } else {
+    file.mv('/var/www/html/homework/deploy/' + file.name, function (err) {
+      fs.chmodSync('/var/www/html/homework/deploy/' + file.name, 0755);
+      const hwcheck = spawn('python3', ['-u', formPath, file.name, "checkHomework"], { cwd: '/var/www/html/homework/deploy/' });
 
-    hwcheck.stdout.on('data', (data) => {
-      var message = decoder.write(data);
-      res.write(`data: ${message}\n\n`);
-      res.flushHeaders();
-    });
+      hwcheck.stdout.on('data', (data) => {
+        var message = decoder.write(data);
+        res.write(`data: ${message}\n\n`);
+        res.flushHeaders();
+      });
 
-    hwcheck.stderr.on('data', (data) => {
-      console.log(`stderr: ${data}`);
-      res.write('event: message\n');
-      res.write(`data: ${data}\n\n`);
-    });
+      hwcheck.stderr.on('data', (data) => {
+        console.log(`stderr: ${data}`);
+        res.write('event: message\n');
+        res.write(`data: ${data}\n\n`);
+        res.connection.destroy();
+        // res.set("Connection", "close");
+        // res.flushHeaders();
 
-    hwcheck.on('close', (code) => {
-      console.log(`child process exited with code ${code}`);
-      res.write('event: message\n');
-      res.write(`data: ${code}\n\n`);
-      res.end();
+      });
+
+      hwcheck.on('close', (code) => {
+        console.log(`child process exited with code ${code}`);
+        res.write('event: message\n');
+        res.write(`data: ${code}\n\n`);
+        res.end();
+      });
     });
-  });
+  }
+
 });
 
 app.post('/clear-results', async (req, res) => {
@@ -82,6 +92,7 @@ app.post('/clear-results', async (req, res) => {
     console.log(`stderr: ${data}`);
     res.write('event: message\n');
     res.write(`data: ${data}\n\n`);
+    res.end();
   });
 
   hwcheck.on('close', (code) => {
@@ -94,5 +105,5 @@ app.post('/clear-results', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

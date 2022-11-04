@@ -302,13 +302,10 @@ const createAccordionItem = (testName, test) => {
         excepted: excepted.data.toString()
     };
 
-    // const output = {
-    //     user: test.user_output,
-    //     correct: test.correct_output,
-    // };
-
-
-    const failed = test.result.toLowerCase().includes('failed');
+    let failed = test.result.toLowerCase().includes('failed');
+    if(!test.result){
+        failed = true;
+    }
     const result = test.result;
     const warning = Boolean(test.warning.trim());
     const grade = Boolean(test.grade.trim());
